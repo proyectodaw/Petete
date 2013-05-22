@@ -74,7 +74,6 @@ table {
   nav{
 	margin-left:10%;
 	margin-right:10%;
-	
   }
   
   .mi-menu  li{
@@ -188,14 +187,14 @@ table {
   
   #a{
       float:left;
-      height: 300px;
+      height: 400px;
   }
   #a fieldset{
       height: 50%;
   }
   #b{
       float:right;
-      height: 300px;
+      height: 400px;
   }
   #b fieldset{
       height:100%;

@@ -2,13 +2,13 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
     <head>
-        <title>PELETE</title>
+        <title>PETETE</title>
         <link rel=stylesheet href="CSS/estilos.css" type="text/css">
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <meta name="viewport" content="width=devices-width"></meta>
     </head>
     <body>
-        <header class="petete">
+        <header class="login">
             <?php
             include 'Conectar.php';
             $cerrarSesion = 'javascript:location.href="cerrarSesion.php"';

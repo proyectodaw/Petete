@@ -75,15 +75,28 @@
                             <td>Fecha</td><td><input type="text" name="fecha" id="fecha" placeholder="Fecha (dd-mm-yyyy)"/></td>
                         </tr>
                         <tr>
-                            <td><label id="lNacionalidad">Nacionalidad</label></td>
-                            <td><select name="nacionalidad" id="nacionalidad">
-                                <option>Selecciona...</option>
+                            <td>Nacionalidad</td><td><input type="text" id="nacionalidad" placeholder="Nacionalidad"/></td>
+                        </tr>
+                        <tr>
+                            <td>Pais</td>
+                            <td><select name="pais" id="pais">
                                 <option>España</option>
                                 <option>Alemania</option>
                                 <option>Inglaterra</option>
                                 <option>Francia</option>
-                                </select></td>
-                                
+                                </select></td>                               
+                        </tr>
+                        <tr>
+                            <td>Provincia</td><td><input type="text" id="provincia" placeholder="Provincia"/></td>
+                        </tr>
+                        <tr>
+                            <td>Poblacion</td><td><input type="text" id="poblacion" placeholder="Poblacion"/></td>
+                        </tr>
+                        <tr>
+                            <td>Dirección</td><td><input type="text" id="direccion" placeholder="Direccion"/></td>
+                        </tr>
+                        <tr>
+                            <td>Código Postal</td><td><input type="text" id="postal" placeholder="Codigo Postal"/></td>
                         </tr>
                         <tr>
                             <td>Sexo:</td>
