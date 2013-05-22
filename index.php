@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=devices-width"></meta>
     </head>
     <body>
-        <header class="login">
+        <header class="petete">
             <?php
             include 'Conectar.php';
             $cerrarSesion = 'javascript:location.href="cerrarSesion.php"';
