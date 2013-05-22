@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
     <head>
-        <title>PETETE</title>
+        <title>PELETE</title>
         <link rel=stylesheet href="CSS/estilos.css" type="text/css">
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <meta name="viewport" content="width=devices-width"></meta>
