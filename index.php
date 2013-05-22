@@ -36,7 +36,7 @@
         <nav>
             <a href="index.php"><img src="Imagenes/logo.png" id="logo" /></a>
             <ul class="mi-menu">
-                <li><a href="futbol.html"> FUTBOL </a></li>
+                <li><a href="futbol.php"> FUTBOL </a></li>
                 <li><a href="URL_enlace_2"> BINGO </a></li>
                 <li><a href="URL_enlace_3"> GALGOS </a></li>
             </ul>	

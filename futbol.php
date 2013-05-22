@@ -36,9 +36,9 @@
         </header>
 	
 	<nav>
-		<a href="indice.html"><img src="logo.png" id="logo" /></a>
+		<a href="index.php"><img src="Imagenes/logo.png" id="logo" /></a>
 		<ul class="mi-menu">
-			<li><a href="futbol.html"> FUTBOL </a></li>
+			<li><a href="futbol.php"> FUTBOL </a></li>
 			<li><a href="URL_enlace_2"> BINGO </a></li>
 			<li><a href="URL_enlace_3"> GALGOS </a></li>
 		</ul>	
@@ -61,7 +61,7 @@
 		</table>
 	
 	<div id="administrador">
-		<input type="button" id="annadir" value="Añadir" />
+		<input type="button" id="annadir" value="Aï¿½adir" />
 	</div>
 	
 	</section>
