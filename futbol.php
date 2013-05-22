@@ -56,7 +56,7 @@
 				<th>1</th>
 				<th>X</th>
 				<th>2</th>
-				<th></th>
+				<th>Resultado</th>
 			<tr>
 		</table>
 	
