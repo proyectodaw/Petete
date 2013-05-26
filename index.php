@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php session_start();
+ include './inactivo.php';
+?>
 <!DOCTYPE HTML>
 <html lang="en-US">
     <head>
@@ -10,9 +12,11 @@
     <body>
         <header class="login">
             <?php
-            include 'Conectar.php';
+            include './Conectar.php';
             $cerrarSesion = 'javascript:location.href="cerrarSesion.php"';
             @$datosSession=$_SESSION['datosUsuario']['usuario'];
+            $_SESSION['tiempo']=time();
+
 
             if (isset($datosSession)) {
                 printf("<p>Hola " . $_SESSION['datosUsuario']['nombre'] . "  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
@@ -45,7 +49,7 @@
         <section>
 
             <div id="principal">
-                <a href="registro.php"><img src="Imagenes/inicio.jpg" id="fondo" /></a>
+                <a href="./registro.php"><img src="Imagenes/inicio.jpg" id="fondo" /></a>
             </div>
             <div id="menu2">
                 <ul>
