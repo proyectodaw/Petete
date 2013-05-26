@@ -43,6 +43,7 @@ if ($existe == false) {
     $array[11] = $codigoPromocion;
     $array[12] = $estadoCodigo;
     $array[13] = $tipoUsuario;
+    $array[14] = $codigoActivacion;
 
     $user->annadirUsuario($array, $conexion);
     $datosUsuario = $user->validarUsuario($usuario, $password, $conexion);
