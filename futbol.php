@@ -1,6 +1,8 @@
+<?php session_start(); ?>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">-->
 	<LINK href="CSS/estilos.css" rel="stylesheet" type="text/css">
 	<script src="jquery-1.7.2.js"></script>
 	<script language="javascript">
@@ -45,12 +47,56 @@
 	</nav>
 	
 	<section id="futbol">
-		<h3>Proximos Partidos</h3>
+		<h3>Próximos Partidos</h3>
 		<table id="partidos">
 			<tr>
+                                <th id="th_jor">Jornada</th>
+				<th id="th_fec">Fecha</th>
+				<th id="th_hin">Hora Inicio</th>
+				<th id="th_loc">Local</th>
+				<th id="th_vis">Visitante</th>
+				<th id="th_plo">1</th>
+				<th id="th_pem">X</th>
+				<th id="th_pvi">2</th>
+				<th id="th_res">Resultado</th>
+			<tr>
+                         <?php
+                        
+                        $conexion = conectar();
+                        $select = "select * from tabla_futbol";
+                        $resultado = $conexion->query($select);
+
+                if ($resultado) {
+                    while ($fila = $resultado->fetch_assoc()) {
+                        printf("
+                        <tr>
+                                <td headers='th_jor'>%d</td> 
+                                <td headers='th_fec'>%s</td> 
+                                <td headers='th_hin'>%s</td> 
+                                <td headers='th_loc'>%s</td> 
+                                <td headers='th_vis'>%s</td> 
+                                <td headers='th_plo'><form action='pintaBoleto.js' method='post'><input type='submit' value='%s €' /></form></td>               
+                                <td headers='th_pem'><form action='pintaBoleto.js' method='post'><input type='submit' value='%s €' /></form></td>
+                                <td headers='th_pvi'><form action='pintaBoleto.js' method='post'><input type='submit' value='%s €' /></form></td>
+                                <td headers='th_res'>%s</td>
+                                </tr>", $fila["id_partidof"], $fila["fecha"], $fila["hora_ini"], $fila["local"],$fila["visitante"], $fila["precio_local"], $fila["precio_empate"], $fila["precio_visitante"], $fila["resultado"]);
+                    /*    if (isset($_SESSION['datosUsuario']['usuario']))
+                        {
+                            <td>Modificar</td>
+                            
+                        }*/
+                      
+                    }
+                }
+                ?>  
+		</table>
+	
+	<div id="administrador">
+                <table id="partidos">
+			<tr>
+                                <th>Jornada</th>
 				<th>Fecha</th>
 				<th>Hora Inicio</th>
-				<th>Hora Fin</th>
 				<th>Local</th>
 				<th>Visitante</th>
 				<th>1</th>
@@ -58,10 +104,26 @@
 				<th>2</th>
 				<th>Resultado</th>
 			<tr>
+                            <form id="fPartidos" action="procesoPartidos.php" method="post">
+                        <tr>
+                           
+                                <td><input type="text" name="jornada" id="jornada" placeholder="Jornada"/></td>
+                                <td><input type="text" name="fechaP" id="fechaP" placeholder="Fecha"/></td>
+                                <td><input type="text" name="h_ini" id="h_ini" placeholder="Hora inicio"/></td>
+                                <td><input type="text" name="local" id="local" placeholder="Local"/></td>
+                                <td><input type="text" name="visitante" id="visitante" placeholder="Visitante"/></td>
+                                <td><input type="text" name="p_local" id="p_local" placeholder="Precio local"/></td>
+                                <td><input type="text" name="p_empate" id="p_empate" placeholder="Precio empate"/></td>
+                                <td><input type="text" name="p_visitante" id="p_visitante" placeholder="Precio visitante"/></td>
+                        </tr>
+                        <tr>
+                                <td><input type="submit" id="annadir" value="Añadir" /></td>
+                        </tr>
+                       
+                             </form>
+
 		</table>
-	
-	<div id="administrador">
-		<input type="button" id="annadir" value="A�adir" />
+		<input type="button" id="annadir" value="Añadir" />
 	</div>
 	
 	</section>
