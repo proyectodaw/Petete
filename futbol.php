@@ -75,13 +75,16 @@
                                 <td headers='th_hin'>%s</td> 
                                 <td headers='th_loc'>%s</td> 
                                 <td headers='th_vis'>%s</td> 
-                                <td headers='th_plo'><form action='pintaBoleto.js' method='post'><input type='submit' value='%s €' /></form></td>               
-                                <td headers='th_pem'><form action='pintaBoleto.js' method='post'><input type='submit' value='%s €' /></form></td>
-                                <td headers='th_pvi'><form action='pintaBoleto.js' method='post'><input type='submit' value='%s €' /></form></td>
+                                <td headers='th_plo'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='local'/><input type='submit' value='%s €' /></form></td>               
+                                <td headers='th_pem'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='empate'/><input type='submit' value='%s €' /></form></td>
+                                <td headers='th_pvi'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='visitante'/><input type='submit' value='%s €' /></form></td>
                                 <td headers='th_res'>%s</td>
-                                </tr>", $fila["id_partidof"], $fila["fecha"], $fila["hora_ini"], $fila["local"],$fila["visitante"], $fila["precio_local"], $fila["precio_empate"], $fila["precio_visitante"], $fila["resultado"]);
+                                </tr>", $fila["id_partidof"], $fila["fecha"], $fila["hora_ini"], $fila["local"],$fila["visitante"], $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_local"], $fila["precio_local"], $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_empate"], $fila["precio_empate"], $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_visitante"], $fila["precio_visitante"], $fila["resultado"]);
                     /*    if (isset($_SESSION['datosUsuario']['usuario']))
                         {
+                     *          $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_local"], $fila["precio_local"], $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_empate"], $fila["precio_empate"], $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_visitante"], $fila["precio_visitante"],
+                     * 
+<input type='hidden' name='borrar' value='%s'/><input type='hidden' name='pre' value='%s'/>
                             <td>Modificar</td>
                             
                         }*/
