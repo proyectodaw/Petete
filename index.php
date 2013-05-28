@@ -13,19 +13,14 @@
         <header class="login">
             <?php
             include './Conectar.php';
-<<<<<<< HEAD
-=======
             include './Usuario.php';
->>>>>>> branch 'roberto' of https://github.com/proyectodaw/Petete.git
             $cerrarSesion = 'javascript:location.href="cerrarSesion.php"';
-<<<<<<< HEAD
             @$datosSession=$_SESSION['datosUsuario']['usuario'];
             $_SESSION['tiempo']=time();
 
-=======
             $conexion = conectar();
             $codigoActivacion = $_GET['codigoActivacion'];
->>>>>>> branch 'roberto' of https://github.com/proyectodaw/Petete.git
+
 
             if (isset($codigoActivacion)) {
                 $user = new Usuario();

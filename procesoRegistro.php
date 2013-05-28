@@ -24,9 +24,6 @@ $saldo = 0;
 $codigoPromocion = rand(1000000, 9999999);
 $estadoCodigo = "inactivo";
 $tipoUsuario = "desactivado";
-<<<<<<< HEAD
-$codigoActivacion= "";
-=======
 
 //genero código de activación
 $pattern = "1234567890abcdefghijklmnopqrstuvwxyz";
@@ -36,7 +33,6 @@ for($i = 0; $i < 20; $i++) {
 }
 
 $codigoActivacion= $key;
->>>>>>> branch 'roberto' of https://github.com/proyectodaw/Petete.git
 
 $conexion = conectar();
 $user = new Usuario();
@@ -65,13 +61,10 @@ if ($existe == false) {
     $array[15] = $saldo;
     $array[16] = $codigoPromocion;
     $array[17] = $estadoCodigo;
-<<<<<<< HEAD
     $array[18] = $tipoUsuario;
     $array[19] = $codigoActivacion;
-=======
     $array[18] = $codigoActivacion;
     $array[19] = $tipoUsuario;
->>>>>>> branch 'roberto' of https://github.com/proyectodaw/Petete.git
 
     $user->annadirUsuario($array, $conexion);
     //$datosUsuario = $user->validarUsuario($usuario, $password, $conexion);
