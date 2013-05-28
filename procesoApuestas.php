@@ -19,7 +19,7 @@ $arrayApuesta = array();
     $arrayApuesta[3] = $visitante;
     $arrayApuesta[4] = $tasa;
     $arrayApuesta[5] = $tipo;
-/*prueba*/  
+  
     
 header("location:futbol.php");
 ?>

@@ -61,8 +61,6 @@ if ($existe == false) {
     $array[15] = $saldo;
     $array[16] = $codigoPromocion;
     $array[17] = $estadoCodigo;
-    $array[18] = $tipoUsuario;
-    $array[19] = $codigoActivacion;
     $array[18] = $codigoActivacion;
     $array[19] = $tipoUsuario;
 
@@ -70,7 +68,7 @@ if ($existe == false) {
     //$datosUsuario = $user->validarUsuario($usuario, $password, $conexion);
     //$_SESSION['datosUsuario'] = $datosUsuario;
 
-    //****************************** ENVIO DE EMAIL ******************************//
+    //****************************** ENVIO EMAIL ******************************//
        
     $destinatario = $email;
     $asunto = "Activación de la cuenta.";

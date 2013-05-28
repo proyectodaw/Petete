@@ -1,6 +1,4 @@
-<?php session_start();
- include './inactivo.php';
-?>
+<?php session_start(); ?>
 <!DOCTYPE HTML>
 <html lang="en-US">
     <head>
@@ -15,12 +13,8 @@
             include './Conectar.php';
             include './Usuario.php';
             $cerrarSesion = 'javascript:location.href="cerrarSesion.php"';
-            @$datosSession=$_SESSION['datosUsuario']['usuario'];
-            $_SESSION['tiempo']=time();
-
             $conexion = conectar();
             $codigoActivacion = $_GET['codigoActivacion'];
-
 
             if (isset($codigoActivacion)) {
                 $user = new Usuario();
@@ -63,7 +57,7 @@
         <section>
 
             <div id="principal">
-                <a href="./registro.php"><img src="Imagenes/inicio.jpg" id="fondo" /></a>
+                <a href="registro.php"><img src="Imagenes/inicio.jpg" id="fondo" /></a>
             </div>
             <div id="menu2">
                 <ul>
