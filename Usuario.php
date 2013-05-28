@@ -48,6 +48,18 @@ class Usuario {
         }
     }
     
+    public function validarCodigoActivacion($codigoActivacion, $conexion){
+        $consulta = "select * from usuarios where codigo_activacion='$codigoActivacion'";
+        $resultado = $conexion->query($consulta);
+        $datosUsuario = $resultado->fetch_assoc();
+        
+        if ($datosUsuario){
+            return $datosUsuario;
+        }else{
+            return false;
+        }
+    }
+    
     public function existeUsuario($usuario, $email, $nif, $conexion) {
         $existe=true;
         $resultado = $conexion->query("select * from usuarios where usuario='$usuario'");

@@ -10,17 +10,30 @@
     <body>
         <header class="login">
             <?php
-            include 'Conectar.php';
+            include './Conectar.php';
+            include './Usuario.php';
             $cerrarSesion = 'javascript:location.href="cerrarSesion.php"';
-            @$datosSession=$_SESSION['datosUsuario']['usuario'];
+            $conexion = conectar();
+            $codigoActivacion = $_GET['codigoActivacion'];
 
-            if (isset($datosSession)) {
+            if (isset($codigoActivacion)) {
+                $user = new Usuario();
+                $datosUsuario = $user->validarCodigoActivacion($codigoActivacion, $conexion);
+                if($datosUsuario){
+                    $_SESSION['datosUsuario'] = $datosUsuario;
+                    //$conexion->query("update usuarios set codigo_activacion='activado' where usuario='$_SESSION['datosUsuario']['usuario']'");
+                }else{
+                    $_SESSION['error']="NO EXISTE CÓDIGO ACTIVACION";
+                }
+            }
+            
+            if ($_SESSION['datosUsuario']) {
                 printf("<p>Hola " . $_SESSION['datosUsuario']['nombre'] . "  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
                 printf("Saldo actual: " . $_SESSION['datosUsuario']['saldo'] . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
                 printf("<input type = 'submit' id = 'cerrar' value = 'Cerrar sesion' onclick='" . $cerrarSesion . "' /></p>");
             } else {
-                if(isset($_SESSION['error'])){
-                    print'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$_SESSION['error'];
+                if (isset($_SESSION['error'])) {
+                    print'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $_SESSION['error'];
                 }
                 print'<form id="login" name="login" method="POST" action="logear.php">
 		<input type="text" id="usuario" name="usuario" placeholder="Usuario"/>
@@ -29,7 +42,6 @@
                 &nbsp;
                 <a href="registro.php">Registrate</a>
 		</form>';
-                
             }
             ?>            
         </header>
