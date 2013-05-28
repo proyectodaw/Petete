@@ -24,7 +24,19 @@ $saldo = 0;
 $codigoPromocion = rand(1000000, 9999999);
 $estadoCodigo = "inactivo";
 $tipoUsuario = "desactivado";
+<<<<<<< HEAD
 $codigoActivacion= "";
+=======
+
+//genero código de activación
+$pattern = "1234567890abcdefghijklmnopqrstuvwxyz";
+
+for($i = 0; $i < 20; $i++) {
+    $key .= $pattern{rand(0, 35)};
+}
+
+$codigoActivacion= $key;
+>>>>>>> branch 'roberto' of https://github.com/proyectodaw/Petete.git
 
 $conexion = conectar();
 $user = new Usuario();
@@ -53,25 +65,33 @@ if ($existe == false) {
     $array[15] = $saldo;
     $array[16] = $codigoPromocion;
     $array[17] = $estadoCodigo;
+<<<<<<< HEAD
     $array[18] = $tipoUsuario;
     $array[19] = $codigoActivacion;
+=======
+    $array[18] = $codigoActivacion;
+    $array[19] = $tipoUsuario;
+>>>>>>> branch 'roberto' of https://github.com/proyectodaw/Petete.git
 
     $user->annadirUsuario($array, $conexion);
-    $datosUsuario = $user->validarUsuario($usuario, $password, $conexion);
-    $_SESSION['datosUsuario'] = $datosUsuario;
+    //$datosUsuario = $user->validarUsuario($usuario, $password, $conexion);
+    //$_SESSION['datosUsuario'] = $datosUsuario;
 
-    //****************************** ENVIO EMAIL ******************************//
+    //****************************** ENVIO DE EMAIL ******************************//
        
     $destinatario = $email;
-    $asunto = "Este mensaje es de prueba";
+    $asunto = "Activación de la cuenta.";
     $cuerpo = ' 
     <html> 
     <head> 
-        <title>Prueba de correo</title> 
+        <title>Activación de la cuenta de usuario</title> 
     </head> 
     <body> 
         <h1>Hola amigos!</h1> 
-        <p><b>Bienvenidos a PETETE Apuestas.</b></p> 
+        <p><b>Bienvenidos a PETETE Apuestas.</b></p><br />
+        <p>Para activar tu cuenta picha en el siguiente link</p>
+        <a href="http://www.petete.comuv.com/index.php?codigoActivacion='.$codigoActivacion.'">
+            http://www.petete.comuv.com/index.php?codigoActivacion='.$codigoActivacion.'</a>
     </body> 
     </html> 
     ';
