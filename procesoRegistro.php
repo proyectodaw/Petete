@@ -68,7 +68,7 @@ if ($existe == false) {
     //$datosUsuario = $user->validarUsuario($usuario, $password, $conexion);
     //$_SESSION['datosUsuario'] = $datosUsuario;
 
-    //****************************** ENVIO EMAIL ******************************//
+    //****************************** ENVIO DE EMAIL ******************************//
        
     $destinatario = $email;
     $asunto = "Activación de la cuenta.";
