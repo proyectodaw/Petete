@@ -95,20 +95,20 @@ ddsmoothmenu.init({
     </div> <!-- END of header -->
 </div>
 
-<form id="fRegistro" action="registro.php" method="post" onsubmit="return validar();">
+<form id="fRegistro" action="procesoRegistro.php" method="post" onsubmit="return validar();">
             <br><br><h3>Registro de Usuarios</h3>
             <div id="a">
                 <fieldset>
                     <legend>DATOS DE ACCESO</legend>
                     <table class="tablaForm">
                         <tr>
-                            <td>Usuario</td><td><input type="text" id="usuario" placeholder="Usuario"/></td>
+                            <td>Usuario</td><td><input type="text" name="user" id="user" placeholder="Usuario"/></td>
                         </tr>
                         <tr>
-                            <td>Contrase�a</td><td><input type="password" id="password" placeholder="Password"/></td>
+                            <td>Contrase�a</td><td><input type="password" name="pass" id="pass" placeholder="Password"/></td>
                         </tr>
                         <tr>    
-                            <td>Repite la Contrase�a</td><td><input type="password" id="repite_password" placeholder="Repite Password"/></td>
+                            <td>Repite la Contrase�a</td><td><input type="password" name="repite_password" id="repite_password" placeholder="Repite Password"/></td>
                             
                         </tr>
                     </table>
@@ -118,13 +118,13 @@ ddsmoothmenu.init({
                     <legend>DATOS DE CONTACTO</legend>
                     <table class="tablaForm">
                         <tr>
-                            <td>Email</td><td><input type="text" id="email" placeholder="Email"/></td>
+                            <td>Email</td><td><input type="text" name="email" id="email" placeholder="Email"/></td>
                         </tr>
                         <tr>
-                            <td>Repite el Email</td><td><input type="text" id="repite_email" placeholder="Email"/></td>
+                            <td>Repite el Email</td><td><input type="text" name="repite_email" id="repite_email" placeholder="Email"/></td>
                         </tr>
                         <tr>
-                            <td>Telefono</td><td><input type="text" id="telefono" placeholder="Telefono"/></td>
+                            <td>Telefono</td><td><input type="text" name="telefono" id="telefono" placeholder="Telefono"/></td>
                         </tr>
                     </table>
                 </fieldset>
@@ -134,18 +134,18 @@ ddsmoothmenu.init({
                     <legend>DATOS PERSONALES</legend>
                     <table class="tablaForm">
                         <tr>
-                            <td>DNI</td><td><input type="text" id="nif" placeholder="Nif (12345678-L)"/></td>
+                            <td>DNI</td><td><input type="text" name="nif" id="nif" placeholder="Nif (12345678-L)"/></td>
                         </tr>
                         <tr>
-                            <td>Nombre</td><td><input type="text" id="nombre" placeholder="Nombre"/></td>
+                            <td>Nombre</td><td><input type="text" name="nombre" id="nombre" placeholder="Nombre"/></td>
                         </tr>
                         <tr>
-                            <td>Apellidos</td><td><input type="text" id="apellidos" placeholder="Apellidos"/></td>
+                            <td>Apellidos</td><td><input type="text" name="apellidos" id="apellidos" placeholder="Apellidos"/></td>
                         <tr>
-                            <td>Fecha</td><td><input type="text" id="fecha" placeholder="Fecha (dd-mm-yyyy)"/></td>
+                            <td>Fecha</td><td><input type="text" name="fecha" id="fecha" placeholder="Fecha (dd-mm-yyyy)"/></td>
                         </tr>
                         <tr>
-                            <td>Nacionalidad</td><td><input type="text" id="nacionalidad" placeholder="Nacionalidad"/></td>
+                            <td>Nacionalidad</td><td><input type="text" name="nacionalidad" id="nacionalidad" placeholder="Nacionalidad"/></td>
                         </tr>
                         <tr>
                             <td>Pais</td>
@@ -157,16 +157,16 @@ ddsmoothmenu.init({
                                 </select></td>                               
                         </tr>
                         <tr>
-                            <td>Provincia</td><td><input type="text" id="provincia" placeholder="Provincia"/></td>
+                            <td>Provincia</td><td><input type="text" name="provincia" id="provincia" placeholder="Provincia"/></td>
                         </tr>
                         <tr>
-                            <td>Poblacion</td><td><input type="text" id="poblacion" placeholder="Poblacion"/></td>
+                            <td>Poblacion</td><td><input type="text" name="poblacion" id="poblacion" placeholder="Poblacion"/></td>
                         </tr>
                         <tr>
-                            <td>Direcci�n</td><td><input type="text" id="direccion" placeholder="Direccion"/></td>
+                            <td>Direcci�n</td><td><input type="text" name="direccion" id="direccion" placeholder="Direccion"/></td>
                         </tr>
                         <tr>
-                            <td>C�digo Postal</td><td><input type="text" id="postal" placeholder="Codigo Postal"/></td>
+                            <td>C�digo Postal</td><td><input type="text" name="postal" id="postal" placeholder="Codigo Postal"/></td>
                         </tr>
                         <tr>
                             <td>Sexo:</td>
@@ -180,7 +180,7 @@ ddsmoothmenu.init({
             </div>
             <div id="c">
                 <h3>TERMINOS Y CONDICIONES LEGALES</h3>
-                <input type="checkbox" id="terminos"/><label id="lTerminos">Acepta las <a href="">condiciones generales</a> y la <a href="">politica de privacidad de PETETES</a></label><span id="errTerminos"></span><br /><br />
+                <input type="checkbox" name="terminos" id="terminos"/><label id="lTerminos">Acepta las <a href="">condiciones generales</a> y la <a href="">politica de privacidad de PETETES</a></label><span id="errTerminos"></span><br /><br />
                 <input type="submit" value="Enviar"/>
                 <label id="errorGeneral"></label>
             </div>

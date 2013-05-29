@@ -4,7 +4,7 @@ function validar() {
     if (validarUsuario() && validarPassword() && validarRepPassword() && validarEmail() &&
             validarRepEmail() && validarTelefono() && validarNif() && validarNombre() &&
             validarApellidos() && validarFechaNacimiento() && validarNacionalidad() &&
-            validarSexo() && validarTerminos()) {
+            validarTerminos()) {
         return true;
     } else {
         return false;
@@ -13,13 +13,13 @@ function validar() {
 function validarUsuario() {
     var expresion = /[a-zA-Z-0-9]{6,}/;
 
-    if (document.getElementById('usuario').value === "") {
+    if (document.getElementById('user').value === "") {
         document.getElementById('errorGeneral').innerHTML = "Usuario vacio";
-        document.getElementById('usuario').focus();
+        document.getElementById('user').focus();
         return false;
-    } else if (!expresion.test(document.getElementById('usuario').value)) {
+    } else if (!expresion.test(document.getElementById('user').value)) {
         document.getElementById('errorGeneral').innerHTML = "Usuario incorrecto";
-        document.getElementById('usuario').focus();
+        document.getElementById('user').focus();
         return false;
     } else {
         document.getElementById('errorGeneral').innerHTML = "";
@@ -29,13 +29,13 @@ function validarUsuario() {
 function validarPassword() {
     var expresion = /[a-zA-Z-0-9]{6,}/;
 
-    if (document.getElementById('password').value === "") {
+    if (document.getElementById('pass').value === "") {
         document.getElementById('errorGeneral').innerHTML = "Password vacio";
-        document.getElementById('password').focus();
+        document.getElementById('pass').focus();
         return false;
-    } else if (!expresion.test(document.getElementById('password').value)) {
+    } else if (!expresion.test(document.getElementById('pass').value)) {
         document.getElementById('errorGeneral').innerHTML = "Password incorrecto";
-        document.getElementById('password').focus();
+        document.getElementById('pass').focus();
         return false;
     } else {
         document.getElementById('errorGeneral').innerHTML = "";
@@ -44,12 +44,13 @@ function validarPassword() {
 }
 
 function validarRepPassword(){
-    if(document.getElementById('password').value===document.getElementById('repite_password').value){
+    if(document.getElementById('pass').value===document.getElementById('repite_password').value){
         document.getElementById('errorGeneral').innerHTML = "";
         return true;
     }else{
         document.getElementById('errorGeneral').innerHTML = "Password no coincide";
         document.getElementById('repite_password').focus();
+        return false;
     }
 }
 
@@ -77,6 +78,7 @@ function validarRepEmail(){
     }else{
         document.getElementById('errorGeneral').innerHTML = "Email no coincide";
         document.getElementById('repite_email').focus();
+        return false;
     }
 }
 function validarNif() {
@@ -186,22 +188,22 @@ function validarNacionalidad() {
         return true;
     }
 }
-function validarSexo() {
-    o = document.forms[0].sexo;
-    for (i = 0; i < o.length; i++) {
-        if (o[i].checked) {
-            document.getElementById('errorGeneral').innerHTML = "";
-            return true;
-        }
-    }
-    if (i > o.length - 1) {
-        document.getElementById('errorGeneral').innerHTML = "Debe seleccionar un sexo";
-        document.getElementById('sexo').focus();
-        return false;
-    }
-}
+//function validarSexo() {
+//    o = document.forms[0].sexo;
+//    for (i = 0; i < o.length; i++) {
+//        if (o[i].checked) {
+//            document.getElementById('errorGeneral').innerHTML = "";
+//            return true;
+//        }
+//    }
+//    if (i > o.length - 1) {
+//        document.getElementById('errorGeneral').innerHTML = "Debe seleccionar un sexo";
+//        document.getElementById('sexo').focus();
+//        return false;
+//    }
+//}
 function validarTerminos() {
-    if(!document.forms[0].terminos.checked){
+    if(!document.forms[1].terminos.checked){
         document.getElementById('errorGeneral').innerHTML = "Debe aceptar los términos";
         document.getElementById('terminos').focus();
         return false;
