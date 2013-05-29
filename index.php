@@ -1,33 +1,90 @@
-<?php session_start(); ?>
-<!DOCTYPE HTML>
-<html lang="en-US">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>PETETE</title>
-        <link rel=stylesheet href="CSS/estilos.css" type="text/css">
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <meta name="viewport" content="width=devices-width"></meta>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>PETETE Apuestas</title>
+        <meta name="keywords" content="work center, theme, piecemaker 3D image slider, 960, free templates, CSS, HTML" />
+        <meta name="description" content="Work Center Theme is a free CSS template by templatemo.com for everyone. Feel free to use it for any purpose." />
+        <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+
+        <script type="text/javascript" src="js/swfobject/swfobject.js"></script>
+        
+
+        <script type="text/javascript">
+            var flashvars = {};
+            flashvars.cssSource = "css/piecemaker.css";
+            flashvars.xmlSource = "piecemaker.xml";
+	
+            var params = {};
+            params.play = "true";
+            params.menu = "false";
+            params.scale = "showall";
+            params.wmode = "transparent";
+            params.allowfullscreen = "true";
+            params.allowscriptaccess = "always";
+            params.allownetworking = "all";
+  
+            swfobject.embedSWF('piecemaker.swf', 'piecemaker', '960', '440', '10', null, flashvars,    
+            params, null);
+
+        </script>
+
+        <script language="javascript" type="text/javascript">
+            function clearText(field)
+            {
+                if (field.defaultValue == field.value) field.value = '';
+                else if (field.value == '') field.value = field.defaultValue;
+            }
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/ddsmoothmenu.js">
+
+            /***********************************************
+             * Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+             * This notice MUST stay intact for legal use
+             * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+             ***********************************************/
+
+        </script>
+
+        <script type="text/javascript">
+
+            ddsmoothmenu.init({
+                mainmenuid: "templatemo_menu", //menu DIV id
+                orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+                classname: 'ddsmoothmenu', //class added to menu's outer DIV
+                //customtheme: ["#1c5a80", "#18374a"],
+                contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+            })
+
+        </script> 
     </head>
+
     <body>
-        <header class="login">
+        
+        <div class="login">
             <?php
             include './Conectar.php';
             include './Usuario.php';
             $cerrarSesion = 'javascript:location.href="cerrarSesion.php"';
             $conexion = conectar();
-            $codigoActivacion = $_GET['codigoActivacion'];
+            @$codigoActivacion = $_GET['codigoActivacion'];
 
             if (isset($codigoActivacion)) {
                 $user = new Usuario();
                 $datosUsuario = $user->validarCodigoActivacion($codigoActivacion, $conexion);
-                if($datosUsuario){
+                if ($datosUsuario) {
                     $_SESSION['datosUsuario'] = $datosUsuario;
                     //$conexion->query("update usuarios set codigo_activacion='activado' where usuario='$_SESSION['datosUsuario']['usuario']'");
-                }else{
-                    $_SESSION['error']="NO EXISTE CÓDIGO ACTIVACION";
+                } else {
+                    $_SESSION['error'] = "NO EXISTE CÓDIGO ACTIVACION";
                 }
             }
-            
-            if ($_SESSION['datosUsuario']) {
+
+            if (@$_SESSION['datosUsuario']) {
                 printf("<p>Hola " . $_SESSION['datosUsuario']['nombre'] . "  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
                 printf("Saldo actual: " . $_SESSION['datosUsuario']['saldo'] . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
                 printf("<input type = 'submit' id = 'cerrar' value = 'Cerrar sesion' onclick='" . $cerrarSesion . "' /></p>");
@@ -44,35 +101,104 @@
 		</form>';
             }
             ?>            
-        </header>
-        <nav>
-            <a href="index.php"><img src="Imagenes/logo.png" id="logo" /></a>
-            <ul class="mi-menu">
-                <li><a href="futbol.php"> FUTBOL </a></li>
-                <li><a href="URL_enlace_2"> BINGO </a></li>
-                <li><a href="URL_enlace_3"> GALGOS </a></li>
-            </ul>	
-        </nav>
+        </div>
+        <div id="templatemo_header_wrapper">
+            <div id="templatemo_header">
+                <div id="site_title"><a href="index.php">PE<span>TETE</span></a></div>
+                <div id="templatemo_menu" class="ddsmoothmenu">
+                    <ul>
+                        <li><a href="index.php" class="selected">Inicio</a></li>
+                        <li><a href="futbol.php">Futbol</a></li>
+                        <li><a href="#">Baloncesto</a></li>
+                        <li><a href="#">Tenis</a></li>
+                        <li><a href="#">Galgos</a></li>
+                        <li><a href="#">Bingo</a></li>
+                    </ul>
+                    <br style="clear: left" />
+                </div> <!-- end of templatemo_menu -->
+            </div> <!-- END of header -->
+        </div>
 
-        <section>
-
-            <div id="principal">
-                <a href="registro.php"><img src="Imagenes/inicio.jpg" id="fondo" /></a>
+        <div id="templatemo_middle_wrapper">
+            <div id="templatemo_middle">
+                <div id="piecemaker">
+                    <p>This template is provided by <a href="http://www.templatemo.com">www.templatemo.com</a> and feel free to use it for your websites.</p>
+                </div>
             </div>
-            <div id="menu2">
-                <ul>
-                    <li><a href="futbol.html"><img src="Imagenes/ball1.png" id="ball" /></a></li>
-                    <li><a href="URL_enlace_2"><img src="Imagenes/bingo1.png" id="bingo" /></a></li>
-                    <li><a href="URL_enlace_3"><img src="Imagenes/galgo1.png" id="galgo" /></a></li>
-                </ul>
+        </div> <!-- END of slider -->
+
+        <div id="templatemo_main_top"></div>
+        <div id="templatemo_main">
+            <div class="fp_box5">
+                <img src="images/ball.png" alt="Image 01" width="48px" height="48px"/>
+                <h2><a href="futbol.php">Futbol</a></h2>
+                <p>Pon a prueba tus conocimientos sobre la Liga de Fútbol Profesional y gana dinero.</p>
             </div>
-        </section>
+            <div class="fp_box5">
+                <img src="images/baloncesto.png" alt="Image 02" width="48px" height="48px"/>
+                <h2><a href="#">Baloncesto</a></h2>
+                <p>Todo sobre la NBA, la mejor liga de Baloncesto del Mundo</p>
+            </div>
+            <div class="fp_box5">
+                <img src="images/tenis.png" alt="Image 03" width="48px" height="48px"/>
+                <h2><a href="#">Tenis</a></h2>
+                <p>Si tu deporte es el Tenis, juegatela con nuestra gran variedad de apuestas.</p>
+            </div>
+            <div class="fp_box5">
+                <img src="images/galgo.png" alt="Image 04" width="48px" height="48px"/>
+                <h2><a href="#">Galgos</a></h2>
+                <p>Si lo tuyo son las carreras de galgos, este es tu sitio.</p>
+            </div>
+            <div class="fp_box5 no_margin_right">
+                <img src="images/bingo.png" alt="Image 05" width="48px" height="48px"/>
+                <h2><a href="#">Bingo</a></h2>
+                <p>Si te gusta el Bingo, este es tu sitio. ¡Entretenimiento y premios para todos!</p>
+            </div>
+            <div class="cleaner h50"></div>
 
+            <div class="cleaner"></div>
+        </div> <!-- END of main -->
 
-        <footer>
-            &copy; Copyright de Raul Abril, Si la copias te revientooooo!!</br>
-            <a href="https://twitter.com/"><img src="Imagenes/twitter.png"/> Siguenos en twitter</a></br>
-            <a href="http://es-es.facebook.com/"><img src="Imagenes/facebook.png" /> Siguenos en facebook</a>
-        </footer>
+        <div id="templatemo_footer_wrapper">
+            <div id="templatemo_footer">
+
+                <div class="col col_14">
+                    <h5>Informacion Interna</h5>
+                    <ul class="footer_list">
+                        <li><a href="about.php">Sobre nosotros...</a></li>
+                        <li><a href="contact.php">Contacto</a></li>
+                        <li><a href="registro.php">Registro</a></li>
+                    </ul>   
+                </div>
+                <div class="col col_14">
+                    <h5>Paginas</h5>
+                    <ul class="footer_list">
+                        <li><a href="futbol.php">Futbol</a></li>
+                        <li><a href="#">Baloncesto</a></li>
+                        <li><a href="#">Tenis</a></li>
+                        <li><a href="#">Galgos</a></li>
+                        <li><a href="#">Bingo</a></li>
+                    </ul>
+                </div>
+                <div class="col col_14">
+                    <h5>Siguenos en</h5>	
+                    <ul class="footer_list">
+                        <li><a href="#" class="social facebook">Facebook</a></li>
+                        <li><a href="#" class="social twitter">Twitter</a></li>
+                        <li><a href="#" class="social feed">Feed</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="col col_14 no_margin_right">
+
+                    <div class="cleaner h30"></div>
+                    Copyright © 2048 <a href="#">PETETE</a><br> Diseñado por <a href="#">Alumnos DAW</a>
+                </div>
+
+                <div class="cleaner"></div>
+            </div>
+        </div> <!-- END of footer -->
+
     </body>
 </html>

@@ -3,49 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>PETETE Apuestas</title>
-<meta name="keywords" content="work center, theme, distortion_effect 3D image slider, 960, free templates, CSS, HTML" />
-<meta name="description" content="Work Center Theme is a free CSS template by templatemo.com for everyone. Feel free to use it for any purpose." />
+<meta name="keywords" content="work center, theme, about us, our company, free templates, templatemo, CSS, HTML" />
+<meta name="description" content="Work Center Theme, About Us, Company, free CSS template by templatemo.com" />
 <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script>
-$(document).ready(function(){
-   $("#miDinero").click(function(evento){
-
-         $("#divDin").css("display", "block");
-         $("#divJug").css("display", "none");
-		 $("#divDat").css("display", "none");
-    
-	});
-	$("#misJugadas").click(function(evento){
-
-         $("#divJug").css("display", "block");
-         $("#divDin").css("display", "none");
-		 $("#divDat").css("display", "none");
-    
-	});
-	$("#misDatos").click(function(evento){
-
-         $("#divDat").css("display", "block");
-         $("#divJug").css("display", "none");
-		 $("#divDin").css("display", "none");
-    
-   });
-});
-</script>
-<script type="text/javascript" src="js/swfobject/swfobject.js"></script>
-        
-	<!-- embedding SWF -->
-		<script type="text/javascript">
-			var flashvars = {};
-			flashvars.xml_file = "distortion_list.xml";
-			var params = {};
-			params.wmode = "transparent";
-			var attributes = {};
-			attributes.id = "flash_distortion_slider";
-			attributes.name = "flash_distortion_slider";
-			swfobject.embedSWF("distortion_effect.swf", "flash_distortion_slider", "960", "360", "9.0.0", false, flashvars, params, attributes);
-		</script>
-	<!-- embedding SWF -->
 
 <script language="javascript" type="text/javascript">
 function clearText(field)
@@ -81,7 +41,7 @@ ddsmoothmenu.init({
 </script> 
 </head>
 
-<body>
+<body id="home">
 <div class="login">
             <?php
             include 'Conectar.php';
@@ -97,18 +57,18 @@ ddsmoothmenu.init({
 		<input type="password" id="password" name="password" placeholder="Password"/>
 		<input type="submit" id="enviar" name="enviar" value="Entrar" />
                 &nbsp;
-                <a href="registro.php">Registrate</a>
+                <a href="registro.html">Registrate</a>
 		</form>';
             }
             ?>            
 </div>
 <div id="templatemo_header_wrapper">
     <div id="templatemo_header">
-        <div id="site_title"><a href="index.php">PE<span>TETE</span></a></div>
+        <div id="site_title"><a href="index.html">PE<span>TETE</span></a></div>
         <div id="templatemo_menu" class="ddsmoothmenu">
             <ul>
-                <li><a href="index.php" class="selected">Inicio</a></li>
-                <li><a href="futbol.php">Futbol</a></li>
+                <li><a href="index.html" class="selected">Inicio</a></li>
+                <li><a href="futbol.html">Futbol</a></li>
                 <li><a href="#">Baloncesto</a></li>
                 <li><a href="#">Tenis</a></li>
 				<li><a href="#">Galgos</a></li>
@@ -118,53 +78,29 @@ ddsmoothmenu.init({
         </div> <!-- end of templatemo_menu -->
     </div> <!-- END of header -->
 </div>
-<br><br><br><br>
-<div id="perfil">
-<ul id="button">
-		<li id="miDinero"><a href="#">Mi Dinero</a></li>
-		<li id="misJugadas"><a href="#">Mis Jugadas</a></li>
-		<li id="misDatos"><a href="#">Mis Datos</a></li>
-	</ul><br><br><br><br><br>
-	<div id="divDin" style="display: none;">
-		<h3>Mi Dinero</h3>
-		<p>Indícanos el importe que deseas depositar en tu monedero</p>
-		<p>Importe (mín 5€)</p><br>
-		<form id="frmIncremeto" action="#" method="POST">
-		<input type="text" id="incremento" name="incremento" />
-		<input type="submit" value="Enviar"/>
-		</form>
+
+<div id="templatemo_main_top"></div>
+<div id="templatemo_main">
+	<div class="col col_23">
+        <h2>Nuestra Historia</h2>
+        <img src="images/templatemo_image_01.jpg" alt="Image 01" class="float_l img_float_l" />
+        <p><em> Cración de un Proyecto.</em></p>
+        <p>Nullam laoreet nisi eu felis iaculis nec convallis augue egestas. Donec ut lacus tellus. Sed dictum, magna laoreet vehicula posuere, tortor justo dictum ante, nec ultrices elit dolor ac nisl. Sed at porttitor ante. <a href="#">Cras massa nisl</a>, dictum et molestie non, pretium vel massa. Integer in erat ipsum, ut tristique velit. Vivamus tempus velit justo, sit amet cursus lorem. In hac habitasse platea dictumst. Aenean sagittis condimentum quam, non aliquam neque scelerisque in. In hac habitasse platea dictumst. Donec nunc dolor, rhoncus sit amet posuere at, lacinia eget arcu. Nulla adipiscing auctor pellentesque.</p>
+        <p>Aenean viverra leo in augue pulvinar volutpat. Sed feugiat nisl nec eros vestibulum vitae vulputate ligula eleifend. Quisque rhoncus mattis ante at dictum. Aliquam non porttitor erat. Curabitur ornare dapibus urna vitae sollicitudin. Nullam dictum auctor neque <a href="#">sit amet tristique</a>. Phasellus quis urna tellus, eu vestibulum urna. Nulla ac purus nibh, quis iaculis libero. Ut sem orci, fermentum in tincidunt at, luctus et orci. Cras aliquam lobortis tortor quis dignissim. Vivamus egestas aliquet est, a pharetra tellus adipiscing sit amet. Nullam tincidunt malesuada nulla, at aliquet orci semper vel. Suspendisse dignissim, nibh vel tempor pharetra, sem sapien egestas lorem, et aliquet eros quam non felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Validate <a href="http://validator.w3.org/check?uri=referer" rel="nofollow"><strong>XHTML</strong></a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow"><strong>CSS</strong></a>.</p>
 	</div>
+    <div class="col col_13 no_margin_right">
+    	<h3>Testimonios</h3>
+        <div class="testimonial">
+            <p>"Hubo un periodo de tiempo en el que me planteé hacer solo el proyecto."</p>
+            <div class="cleaner"></div>
+            <cite>Roberto Yebenes <a href="#"><span>- DAW, PETETE's Comany</span></a></cite></div>
+        <div class="testimonial">
+            <p>"Mi casa fue el Cuartel General."</p>
+            <div class="cleaner"></div>
+            <cite>Ismael Cirre<a href="#"><span> - DAW, PETETE's Comany</span></a></cite></div>
+    </div>    
+    <div class="cleaner h40"></div>
 
-
-	<div id="divJug" style="display: none;">
-		<h3>Mis Jugadas</h3>
-		<p>Esta es la actividad de juego en nuestro Casino</p>
-		<div id="historial"></div>
-	</div>
-
-
-	<div id="divDat" style="display: none;">
-		<h3>Mis Datos</h3>
-		<form id="frmModDatos" action="#" method="POST">
-			Email<br><input type="text" id="email" placeholder="Email"/><br>
-			Repite el Email<br><input type="text" id="repite_email" placeholder="Email"/><br>
-			Telefono<br><input type="text" id="telefono" placeholder="Telefono"/><br>
-			Pais<br>
-			<select name="pais" id="pais">
-				<option>España</option>
-				<option>Alemania</option>
-				<option>Inglaterra</option>
-				<option>Francia</option>
-			</select><br>                       
-			Provincia<br><input type="text" id="provincia" placeholder="Provincia"/><br>
-			Poblacion<br><input type="text" id="poblacion" placeholder="Poblacion"/><br>
-			Dirección<br><input type="text" id="direccion" placeholder="Direccion"/><br>
-			Código Postal<br><input type="text" id="postal" placeholder="Codigo Postal"/><br>
-			<br><br>
-			<input type="submit" value="Enviar"/>
-		</form>
-	</div>
-</div><br><br><br>
     <div class="cleaner"></div>
 </div> <!-- END of main -->
 
@@ -174,15 +110,15 @@ ddsmoothmenu.init({
 		<div class="col col_14">
         	<h5>Informacion Interna</h5>
             <ul class="footer_list">
-                <li><a href="about.php">Sobre nosotros...</a></li>
-                <li><a href="contact.php">Contacto</a></li>
-            	<li><a href="registro.php">Registro</a></li>
+                <li><a href="about.html">Sobre nosotros...</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            	<li><a href="registro.html">Registro</a></li>
 			</ul>   
         </div>
         <div class="col col_14">
         	<h5>Paginas</h5>
             <ul class="footer_list">
-            	<li><a href="futbol.php">Futbol</a></li>
+            	<li><a href="futbol.html">Futbol</a></li>
                 <li><a href="#">Baloncesto</a></li>
                 <li><a href="#">Tenis</a></li>
                 <li><a href="#">Galgos</a></li>
@@ -202,7 +138,7 @@ ddsmoothmenu.init({
         <div class="col col_14 no_margin_right">
         	
             <div class="cleaner h30"></div>
-            Copyright � 2048 <a href="#">PETETE</a><br> Dise�ado por <a href="#">Alumnos DAW</a>
+            Copyright © 2048 <a href="#">PETETE</a><br> Diseñado por <a href="#">Alumnos DAW</a>
         </div>
         
     <div class="cleaner"></div>

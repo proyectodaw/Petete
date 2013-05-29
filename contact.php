@@ -3,49 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>PETETE Apuestas</title>
-<meta name="keywords" content="work center, theme, distortion_effect 3D image slider, 960, free templates, CSS, HTML" />
-<meta name="description" content="Work Center Theme is a free CSS template by templatemo.com for everyone. Feel free to use it for any purpose." />
+<meta name="keywords" content="work center, theme, free templates, website templates, CSS, HTML" />
+<meta name="description" content="Work Center Theme is a free CSS template provided by templatemo.com" />
 <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script>
-$(document).ready(function(){
-   $("#miDinero").click(function(evento){
-
-         $("#divDin").css("display", "block");
-         $("#divJug").css("display", "none");
-		 $("#divDat").css("display", "none");
-    
-	});
-	$("#misJugadas").click(function(evento){
-
-         $("#divJug").css("display", "block");
-         $("#divDin").css("display", "none");
-		 $("#divDat").css("display", "none");
-    
-	});
-	$("#misDatos").click(function(evento){
-
-         $("#divDat").css("display", "block");
-         $("#divJug").css("display", "none");
-		 $("#divDin").css("display", "none");
-    
-   });
-});
-</script>
-<script type="text/javascript" src="js/swfobject/swfobject.js"></script>
-        
-	<!-- embedding SWF -->
-		<script type="text/javascript">
-			var flashvars = {};
-			flashvars.xml_file = "distortion_list.xml";
-			var params = {};
-			params.wmode = "transparent";
-			var attributes = {};
-			attributes.id = "flash_distortion_slider";
-			attributes.name = "flash_distortion_slider";
-			swfobject.embedSWF("distortion_effect.swf", "flash_distortion_slider", "960", "360", "9.0.0", false, flashvars, params, attributes);
-		</script>
-	<!-- embedding SWF -->
 
 <script language="javascript" type="text/javascript">
 function clearText(field)
@@ -81,7 +41,7 @@ ddsmoothmenu.init({
 </script> 
 </head>
 
-<body>
+<body id="home">
 <div class="login">
             <?php
             include 'Conectar.php';
@@ -118,53 +78,48 @@ ddsmoothmenu.init({
         </div> <!-- end of templatemo_menu -->
     </div> <!-- END of header -->
 </div>
-<br><br><br><br>
-<div id="perfil">
-<ul id="button">
-		<li id="miDinero"><a href="#">Mi Dinero</a></li>
-		<li id="misJugadas"><a href="#">Mis Jugadas</a></li>
-		<li id="misDatos"><a href="#">Mis Datos</a></li>
-	</ul><br><br><br><br><br>
-	<div id="divDin" style="display: none;">
-		<h3>Mi Dinero</h3>
-		<p>Indícanos el importe que deseas depositar en tu monedero</p>
-		<p>Importe (mín 5€)</p><br>
-		<form id="frmIncremeto" action="#" method="POST">
-		<input type="text" id="incremento" name="incremento" />
-		<input type="submit" value="Enviar"/>
-		</form>
+
+
+<div id="templatemo_main_top"></div>
+<div id="templatemo_main">
+	<h2>Información</h2>
+    <div class="col_12 float_l">
+    	<h4>Dirección</h4>
+        <h6><strong>PETETE</strong></h6>
+          		Calle de Móstoles, 64<br />
+                28942 Fuenlabrada, Madrid<br /><br />
+				
+		<strong>Teléfono:</strong> 91-697-15-12<br />
+        <strong>Email:</strong> <a href="mailto:petete@company.com">petete@company.com</a>  <br />
+        
+        <div class="cleaner h40"></div>  
+        <h4>Localización</h4>
+	  	<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.es/maps?f=q&amp;source=s_q&amp;hl=es&amp;geocode=&amp;q=Instituto+de+Educaci%C3%B3n+Secundaria+Ies+Gaspar+Melchor+de+Jovellanos,+Calle+de+M%C3%B3stoles,+Fuenlabrada&amp;aq=0&amp;oq=ies+gaspar&amp;sll=40.525282,-3.81603&amp;sspn=3.669889,8.453979&amp;ie=UTF8&amp;hq=Instituto+de+Educaci%C3%B3n+Secundaria+Ies+Gaspar+Melchor+de+Jovellanos,&amp;hnear=Calle+de+M%C3%B3stoles,+Fuenlabrada,+Madrid&amp;ll=40.295416,-3.812652&amp;spn=0.009138,0.016207&amp;t=m&amp;output=embed"></iframe><br /><small><a href="https://maps.google.es/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q=Instituto+de+Educaci%C3%B3n+Secundaria+Ies+Gaspar+Melchor+de+Jovellanos,+Calle+de+M%C3%B3stoles,+Fuenlabrada&amp;aq=0&amp;oq=ies+gaspar&amp;sll=40.525282,-3.81603&amp;sspn=3.669889,8.453979&amp;ie=UTF8&amp;hq=Instituto+de+Educaci%C3%B3n+Secundaria+Ies+Gaspar+Melchor+de+Jovellanos,&amp;hnear=Calle+de+M%C3%B3stoles,+Fuenlabrada,+Madrid&amp;ll=40.295416,-3.812652&amp;spn=0.009138,0.016207&amp;t=m" style="color:#0000FF;text-align:left">Ver mapa más grande</a></small>
+        
 	</div>
+    <div class="col_12 float_r">
+    	<h4>Pongase en contacto con nosotros.</h4>
+        <div id="contact_form">
+           <form method="post" name="contact" action="#">
+                        
+                        <label for="author">Nombre:</label> <input type="text" id="author" name="author" class="required input_field" />
+                        <div class="cleaner h10"></div>
+                        <label for="email">Email:</label> <input type="text" id="email" name="email" class="validate-email required input_field" />
+                        <div class="cleaner h10"></div>
+                        
+						<label for="subject">Asunto:</label> <input type="text" name="subject" id="subject" class="input_field" />
 
-
-	<div id="divJug" style="display: none;">
-		<h3>Mis Jugadas</h3>
-		<p>Esta es la actividad de juego en nuestro Casino</p>
-		<div id="historial"></div>
+						<div class="cleaner h10"></div>
+        
+                        <label for="text">Mensaje:</label> <textarea id="text" name="text" rows="0" cols="0" class="required"></textarea>
+                        <div class="cleaner h10"></div>
+                        
+                        <input type="submit" value="Enviar" id="submit" name="submit" class="submit_btn float_l" />
+						<input type="reset" value="Reset" id="reset" name="reset" class="submit_btn float_r" />
+            </form>
+        </div>
 	</div>
-
-
-	<div id="divDat" style="display: none;">
-		<h3>Mis Datos</h3>
-		<form id="frmModDatos" action="#" method="POST">
-			Email<br><input type="text" id="email" placeholder="Email"/><br>
-			Repite el Email<br><input type="text" id="repite_email" placeholder="Email"/><br>
-			Telefono<br><input type="text" id="telefono" placeholder="Telefono"/><br>
-			Pais<br>
-			<select name="pais" id="pais">
-				<option>España</option>
-				<option>Alemania</option>
-				<option>Inglaterra</option>
-				<option>Francia</option>
-			</select><br>                       
-			Provincia<br><input type="text" id="provincia" placeholder="Provincia"/><br>
-			Poblacion<br><input type="text" id="poblacion" placeholder="Poblacion"/><br>
-			Dirección<br><input type="text" id="direccion" placeholder="Direccion"/><br>
-			Código Postal<br><input type="text" id="postal" placeholder="Codigo Postal"/><br>
-			<br><br>
-			<input type="submit" value="Enviar"/>
-		</form>
-	</div>
-</div><br><br><br>
+    
     <div class="cleaner"></div>
 </div> <!-- END of main -->
 
@@ -202,12 +157,11 @@ ddsmoothmenu.init({
         <div class="col col_14 no_margin_right">
         	
             <div class="cleaner h30"></div>
-            Copyright � 2048 <a href="#">PETETE</a><br> Dise�ado por <a href="#">Alumnos DAW</a>
+            Copyright © 2048 <a href="#">PETETE</a><br> Diseñado por <a href="#">Alumnos DAW</a>
         </div>
         
     <div class="cleaner"></div>
     </div>
 </div> <!-- END of footer -->
-
 </body>
 </html>
