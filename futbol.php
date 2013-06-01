@@ -86,7 +86,7 @@ ddsmoothmenu.init({
         <div id="templatemo_menu" class="ddsmoothmenu">
             <ul>
                 <li><a href="index.php" class="selected">Inicio</a></li>
-                <li><a href="futbol.php">Futbol</a></li>
+                <li><a href="futbol.php">Fútbol</a></li>
                 <li><a href="#">Baloncesto</a></li>
                 <li><a href="#">Tenis</a></li>
 				<li><a href="#">Galgos</a></li>
@@ -99,7 +99,7 @@ ddsmoothmenu.init({
     
 	
 <div id="futbol">
-		<h3>Pr�ximos Partidos</h3>
+		<h3>Próximos Partidos</h3>
 		<table id="partidos">
 			<tr>
                 <th id="th_jor">Jornada</th>
@@ -127,9 +127,9 @@ ddsmoothmenu.init({
                                 <td headers='th_hin'>%s</td> 
                                 <td headers='th_loc'>%s</td> 
                                 <td headers='th_vis'>%s</td> 
-                                <td headers='th_plo'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='local'/><input type='submit' value='%s �' /></form></td>               
-                                <td headers='th_pem'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='empate'/><input type='submit' value='%s �' /></form></td>
-                                <td headers='th_pvi'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='visitante'/><input type='submit' value='%s �' /></form></td>
+                                <td headers='th_plo'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='local'/><input type='submit' value='%s €' /></form></td>               
+                                <td headers='th_pem'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='empate'/><input type='submit' value='%s €' /></form></td>
+                                <td headers='th_pvi'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='visitante'/><input type='submit' value='%s €' /></form></td>
                                 <td headers='th_res'>%s</td>
                                 </tr>", $fila["id_partidof"], $fila["fecha"], $fila["hora_ini"], $fila["local"],$fila["visitante"], $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_local"], $fila["precio_local"], $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_empate"], $fila["precio_empate"], $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_visitante"], $fila["precio_visitante"], $fila["resultado"]);
                    
@@ -138,9 +138,12 @@ ddsmoothmenu.init({
                 }
                 ?>  
 		</table>
-	
-	<div id="administrador">
-                <table id="partidos">
+	<?php
+        
+        if($_SESSION['datosUsuario']['tipoUsuario']=="administrador"){
+        print("    
+	<div id='administrador'>
+                <table id='partidos'>
 			<tr>
                                 <th>Jornada</th>
 				<th>Fecha</th>
@@ -152,20 +155,20 @@ ddsmoothmenu.init({
 				<th>2</th>
 				<th>Resultado</th>
 			<tr>
-                            <form id="fPartidos" action="procesoPartidos.php" method="post">
+                            <form id='fPartidos' action='procesoPartidos.php' method='post'>
                         <tr>
                            
-                                <td><input type="text" name="jornada" id="jornada" placeholder="Jornada"/></td>
-                                <td><input type="text" name="fechaP" id="fechaP" placeholder="Fecha"/></td>
-                                <td><input type="text" name="h_ini" id="h_ini" placeholder="Hora inicio"/></td>
-                                <td><input type="text" name="local" id="local" placeholder="Local"/></td>
-                                <td><input type="text" name="visitante" id="visitante" placeholder="Visitante"/></td>
-                                <td><input type="text" name="p_local" id="p_local" placeholder="Precio local"/></td>
-                                <td><input type="text" name="p_empate" id="p_empate" placeholder="Precio empate"/></td>
-                                <td><input type="text" name="p_visitante" id="p_visitante" placeholder="Precio visitante"/></td>
+                                <td><input type='text' name='jornada' id='jornada' placeholder='Jornada'/></td>
+                                <td><input type='text' name='fechaP' id='fechaP' placeholder='Fecha'/></td>
+                                <td><input type='text' name='h_ini' id='h_ini' placeholder='Hora inicio'/></td>
+                                <td><input type='text' name='local' id='local' placeholder='Local'/></td>
+                                <td><input type='text' name='visitante' id='visitante' placeholder='Visitante'/></td>
+                                <td><input type='text' name='p_local' id='p_local' placeholder='Precio local'/></td>
+                                <td><input type='text' name='p_empate' id='p_empate' placeholder='Precio empate'/></td>
+                                <td><input type='text' name='p_visitante' id='p_visitante' placeholder='Precio visitante'/></td>
                         </tr>
                         <tr>
-                                <td><input type="submit" id="annadir" value="A�adir" /></td>
+                                <td><input type='submit' id='annadir' value='Añadir' /></td>
                         </tr>
                        
                              </form>
@@ -173,7 +176,9 @@ ddsmoothmenu.init({
 		</table>
 		
 	</div>
-	
+        ");            
+        }
+	?> 
 </div>
 
 	
@@ -215,7 +220,7 @@ ddsmoothmenu.init({
         <div class="col col_14 no_margin_right">
         	
             <div class="cleaner h30"></div>
-            Copyright � 2048 <a href="#">PETETE</a><br> Dise�ado por <a href="#">Alumnos DAW</a>
+            Copyright © 2048 <a href="#">PETETE</a><br> Diseñado por <a href="#">Alumnos DAW</a>
         </div>
         
     <div class="cleaner"></div>
