@@ -23,12 +23,12 @@ $sexo = $_POST['sexo'];
 $saldo = 0;
 $codigoPromocion = rand(1000000, 9999999);
 $estadoCodigo = "inactivo";
-$tipoUsuario = "desactivado";
+$tipoUsuario = "inactivo";
 
 //genero código de activación
 $pattern = "1234567890abcdefghijklmnopqrstuvwxyz";
 
-for($i = 0; $i < 20; $i++) {
+for($i = 0; $i < 34; $i++) {
     $key .= $pattern{rand(0, 35)};
 }
 
@@ -80,9 +80,11 @@ if ($existe == false) {
     <body> 
         <h1>Hola amigos!</h1> 
         <p><b>Bienvenidos a PETETE Apuestas.</b></p><br />
-        <p>Para activar tu cuenta picha en el siguiente link</p>
-        <a href="http://www.petete.comuv.com/index.php?codigoActivacion='.$codigoActivacion.'">
-            http://www.petete.comuv.com/index.php?codigoActivacion='.$codigoActivacion.'</a>
+        <p>Acabas de conseguir un bono de 20€, tu código es el '.$codigoPromocion.', entra en tu página de usuario
+           y activalo!, recibiras el dinero en el momento y podrás empezar a disfrutar de PETETE Apuestas.</p>
+        <p>Para activar tu cuenta haz click en el siguiente link</p>
+        <a href="http://www.petete.comuv.com/index.php?cA='.$codigoActivacion.'">
+            http://www.petete.comuv.com/index.php?cA='.$codigoActivacion.'</a>
     </body> 
     </html> 
     ';
@@ -92,7 +94,7 @@ if ($existe == false) {
     $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
 
 //dirección del remitente 
-    $headers .= "From: PETETE Apuestas <admin@petete.com>\r\n";
+    $headers .= "From: PETETE Apuestas <administrador@petete.com>\r\n";
 
 //dirección de respuesta, si queremos que sea distinta que la del remitente 
     //$headers .= "Reply-To: admin@petete.com\r\n";

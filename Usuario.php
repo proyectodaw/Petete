@@ -54,6 +54,8 @@ class Usuario {
         $datosUsuario = $resultado->fetch_assoc();
         
         if ($datosUsuario){
+            $consulta="update usuarios set tipo_usuario='activo' where codigo_activacion='$codigoActivacion'";
+            $conexion->query($consulta);
             return $datosUsuario;
         }else{
             return false;
