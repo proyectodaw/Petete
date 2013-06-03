@@ -65,7 +65,7 @@ ddsmoothmenu.init({
             $cerrarSesion='javascript:location.href="cerrarSesion.php"';
             
             if (isset($_SESSION['datosUsuario']['usuario'])) {
-                printf("<p>Hola " . $_SESSION['datosUsuario']['nombre'] . "  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+                printf("<p>Hola <a href='perfil.php'>" . $_SESSION['datosUsuario']['nombre'] . "</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
                 printf("Saldo actual: " . $_SESSION['datosUsuario']['saldo'] . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
                 printf("<input type = 'submit' id = 'cerrar' value = 'Cerrar sesion' onclick='".$cerrarSesion."' /></p>");
             } else {
@@ -97,7 +97,21 @@ ddsmoothmenu.init({
     </div> <!-- END of header -->
 </div>
     
-	
+<div id="boleto">
+    <table>
+        <tr>
+            <th>BOLETO</th>
+        </tr>
+        <tr>
+            <td>LOCAL</td>
+            <td>-</td>
+            <td>VISITANTE</td>
+            <td>CUOTA</td>
+            <td><input type="text" placeholder="Importe"/></td>
+            <td><input type="submit" value="Apostar"(></td>
+        </tr>
+    </table>
+</div>
 <div id="futbol">
 		<h3>Próximos Partidos</h3>
 		<table id="partidos">
