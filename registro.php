@@ -86,7 +86,7 @@ ddsmoothmenu.init({
         <div id="templatemo_menu" class="ddsmoothmenu">
             <ul>
                 <li><a href="index.php" class="selected">Inicio</a></li>
-                <li><a href="futbol.php">Futbol</a></li>
+                <li><a href="futbol.php">Fútbol</a></li>
                 <li><a href="#">Baloncesto</a></li>
                 <li><a href="#">Tenis</a></li>
 				<li><a href="#">Galgos</a></li>
@@ -107,10 +107,10 @@ ddsmoothmenu.init({
                             <td>Usuario</td><td><input type="text" name="user" id="user" placeholder="Usuario"/></td>
                         </tr>
                         <tr>
-                            <td>Contrase�a</td><td><input type="password" name="pass" id="pass" placeholder="Password"/></td>
+                            <td>Contraseña</td><td><input type="password" name="pass" id="pass" placeholder="Password"/></td>
                         </tr>
                         <tr>    
-                            <td>Repite la Contrase�a</td><td><input type="password" name="repite_password" id="repite_password" placeholder="Repite Password"/></td>
+                            <td>Repite la Contraseña</td><td><input type="password" name="repite_password" id="repite_password" placeholder="Repite Password"/></td>
                             
                         </tr>
                     </table>
@@ -152,7 +152,7 @@ ddsmoothmenu.init({
                         <tr>
                             <td>Pais</td>
                             <td><select name="pais" id="pais">
-                                <option>Espa�a</option>
+                                <option>España</option>
                                 <option>Alemania</option>
                                 <option>Inglaterra</option>
                                 <option>Francia</option>
@@ -162,13 +162,13 @@ ddsmoothmenu.init({
                             <td>Provincia</td><td><input type="text" name="provincia" id="provincia" placeholder="Provincia"/></td>
                         </tr>
                         <tr>
-                            <td>Poblacion</td><td><input type="text" name="poblacion" id="poblacion" placeholder="Poblacion"/></td>
+                            <td>Población</td><td><input type="text" name="poblacion" id="poblacion" placeholder="Poblacion"/></td>
                         </tr>
                         <tr>
-                            <td>Direcci�n</td><td><input type="text" name="direccion" id="direccion" placeholder="Direccion"/></td>
+                            <td>Dirección</td><td><input type="text" name="direccion" id="direccion" placeholder="Direccion"/></td>
                         </tr>
                         <tr>
-                            <td>C�digo Postal</td><td><input type="text" name="postal" id="postal" placeholder="Codigo Postal"/></td>
+                            <td>Código Postal</td><td><input type="text" name="postal" id="postal" placeholder="Codigo Postal"/></td>
                         </tr>
                         <tr>
                             <td>Sexo:</td>
@@ -226,7 +226,7 @@ ddsmoothmenu.init({
         <div class="col col_14 no_margin_right">
         	
             <div class="cleaner h30"></div>
-            Copyright � 2048 <a href="#">PETETE</a><br> Dise�ado por <a href="#">Alumnos DAW</a>
+            Copyright © 2048 <a href="#">PETETE</a><br> Diseñado por <a href="#">Alumnos DAW</a>
         </div>
         
     <div class="cleaner"></div>
