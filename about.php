@@ -2,7 +2,7 @@
 DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
 <title>PETETE Apuestas</title>
 <meta name="keywords" content="work center, theme, about us, our company, free templates, templatemo, CSS, HTML" />
 <meta name="description" content="Work Center Theme, About Us, Company, free CSS template by templatemo.com" />
@@ -58,7 +58,8 @@ ddsmoothmenu.init({
 		<input type="password" id="password" name="password" placeholder="Password"/>
 		<input type="submit" id="enviar" name="enviar" value="Entrar" />
                 &nbsp;
-                <a href="registro.html">Registrate</a>
+                <a href="registro.html">Registrate</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="recuperar.php">Recuperar contraseña</a>
 		</form>';
             }
             ?>            

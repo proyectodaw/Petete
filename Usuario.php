@@ -1,6 +1,7 @@
 <?php
+
 class Usuario {
-    
+
     public function annadirUsuario($array, $conexion) {
         if ($resultado = $conexion->query("insert into usuarios values('$array[0]','$array[1]',
                 '$array[2]','$array[3]','$array[4]','$array[5]','$array[6]','$array[7]','$array[8]',
@@ -11,7 +12,7 @@ class Usuario {
             return false;
         }
     }
-    
+
     public function borrarUsuario($usuario, $conexion) {
         if ($this->comprobarCliente($usuario, $conexion)) {
             if ($resultado = $conexion->query("delete from usuarios where usuario='$usuario'")) {
@@ -47,37 +48,41 @@ class Usuario {
             return false;
         }
     }
-    
-    public function validarCodigoActivacion($codigoActivacion, $conexion){
+
+    public function validarCodigoActivacion($codigoActivacion, $conexion) {
         $consulta = "select * from usuarios where codigo_activacion='$codigoActivacion'";
+        $consulta2 = "update usuarios set tipo_usuario='activo' where codigo_activacion='$codigoActivacion'";
+        $conexion->query($consulta2);
         $resultado = $conexion->query($consulta);
         $datosUsuario = $resultado->fetch_assoc();
-        
-        if ($datosUsuario){
-            $consulta="update usuarios set tipo_usuario='activo' where codigo_activacion='$codigoActivacion'";
-            $conexion->query($consulta);
+
+        if ($datosUsuario) {
+            $consulta3 = "update usuarios set codigo_activacion='activo' where codigo_activacion='$codigoActivacion'";
+            $conexion->query($consulta3);
             return $datosUsuario;
-        }else{
+        } else {
             return false;
         }
     }
-    
+
     public function existeUsuario($usuario, $email, $nif, $conexion) {
-        $existe=true;
+        $existe = true;
         $resultado = $conexion->query("select * from usuarios where usuario='$usuario'");
-        $existeUsuario=$resultado->fetch_assoc();
-        if(!$existeUsuario){
+        $existeUsuario = $resultado->fetch_assoc();
+        if (!$existeUsuario) {
             $resultado = $conexion->query("select * from usuarios where email='$email'");
-            $existeEmail=$resultado->fetch_assoc();
-            if(!$existeEmail){
+            $existeEmail = $resultado->fetch_assoc();
+            if (!$existeEmail) {
                 $resultado = $conexion->query("select * from usuarios where nif='$nif'");
-                $existeNif=$resultado->fetch_assoc();
-                if(!$existeNif){
-                    $existe=false;
+                $existeNif = $resultado->fetch_assoc();
+                if (!$existeNif) {
+                    $existe = false;
                 }
             }
         }
         return $existe;
     }
+
 }
+
 ?>

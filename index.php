@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
         <title>PETETE Apuestas</title>
         <meta name="keywords" content="work center, theme, piecemaker 3D image slider, 960, free templates, CSS, HTML" />
         <meta name="description" content="Work Center Theme is a free CSS template by templatemo.com for everyone. Feel free to use it for any purpose." />
@@ -81,7 +81,7 @@
                     $_SESSION['datosUsuario'] = $datosUsuario;
                     
                 } else {
-                    $_SESSION['error'] = "NO EXISTE CÓDIGO ACTIVACION";
+                    $_SESSION['error'] = "NO EXISTE CÓDIGO ACTIVACION O YA HA SIDO UTILIZADO";
                 }
             }
             $tipoUsuario=$_SESSION['datosUsuario']['tipo_usuario'];
@@ -99,7 +99,8 @@
 		<input type="password" id="password" name="password" placeholder="Password"/>
 		<input type="submit" id="enviar" name="enviar" value="Entrar" />
                 &nbsp;
-                <a href="registro.php">Registrate</a>
+                <a href="registro.php">Registrate</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="recuperar.php">Recuperar contraseña</a>
 		</form>';
             }
             ?>            

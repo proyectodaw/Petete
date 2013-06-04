@@ -78,8 +78,8 @@ if ($existe == false) {
         <title>Activación de la cuenta de usuario</title> 
     </head> 
     <body> 
-        <h1>Hola amigos!</h1> 
-        <p><b>Bienvenidos a PETETE Apuestas.</b></p><br />
+        <h1>Hola '.$nombre.' '.$apellidos.'</h1> 
+        <p><b>Bienvenido a PETETE Apuestas.</b></p><br />
         <p>Acabas de conseguir un bono de 20€, tu código es el '.$codigoPromocion.', entra en tu página de usuario
            y activalo!, recibiras el dinero en el momento y podrás empezar a disfrutar de PETETE Apuestas.</p>
         <p>Para activar tu cuenta haz click en el siguiente link</p>
@@ -112,5 +112,5 @@ mail($destinatario, $asunto, $cuerpo, $headers);
 } else {
     $_SESSION['error'] = "EL USUARIO YA ESTA EN NUEATRA BBDD";
 }
-header("location:index.php");
+header("location:finalizar.php");
 ?>
