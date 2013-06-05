@@ -75,7 +75,8 @@ if ($existe == false) {
     $cuerpo = ' 
     <html> 
     <head> 
-        <title>Activación de la cuenta de usuario</title> 
+        <title>Activación de la cuenta de usuario</title>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
     </head> 
     <body> 
         <h1>Hola '.$nombre.' '.$apellidos.'</h1> 
