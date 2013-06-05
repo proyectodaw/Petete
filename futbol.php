@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>PETETE Apuestas</title>
 <meta name="keywords" content="work center, theme, distortion_effect 3D image slider, 960, free templates, CSS, HTML" />
 <meta name="description" content="Work Center Theme is a free CSS template by templatemo.com for everyone. Feel free to use it for any purpose." />
@@ -65,7 +65,7 @@ ddsmoothmenu.init({
             $cerrarSesion='javascript:location.href="cerrarSesion.php"';
             
             if (isset($_SESSION['datosUsuario']['usuario'])) {
-                printf("<p>Hola <a href='perfil.php'>" . $_SESSION['datosUsuario']['nombre'] . "</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+                printf("<p>Hola " . $_SESSION['datosUsuario']['nombre'] . "  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
                 printf("Saldo actual: " . $_SESSION['datosUsuario']['saldo'] . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
                 printf("<input type = 'submit' id = 'cerrar' value = 'Cerrar sesion' onclick='".$cerrarSesion."' /></p>");
             } else {
@@ -74,8 +74,7 @@ ddsmoothmenu.init({
 		<input type="password" id="password" name="password" placeholder="Password"/>
 		<input type="submit" id="enviar" name="enviar" value="Entrar" />
                 &nbsp;
-                <a href="registro.php">Registrate</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="recuperar.php">Recuperar contraseña</a>
+                <a href="registro.php">Registrate</a>
 		</form>';
             }
             ?>            
@@ -98,21 +97,7 @@ ddsmoothmenu.init({
     </div> <!-- END of header -->
 </div>
     
-<div id="boleto">
-    <table>
-        <tr>
-            <th>BOLETO</th>
-        </tr>
-        <tr>
-            <td>LOCAL</td>
-            <td>-</td>
-            <td>VISITANTE</td>
-            <td>CUOTA</td>
-            <td><input type="text" placeholder="Importe"/></td>
-            <td><input type="submit" value="Apostar"(></td>
-        </tr>
-    </table>
-</div>
+	
 <div id="futbol">
 		<h3>Próximos Partidos</h3>
 		<table id="partidos">
@@ -155,7 +140,7 @@ ddsmoothmenu.init({
 		</table>
 	<?php
         
-        if($_SESSION['datosUsuario']['tipoUsuario']=="administrador"){
+        if($_SESSION['datosUsuario']['tipo_usuario']=="administrador"){
         print("    
 	<div id='administrador'>
                 <table id='partidos'>
