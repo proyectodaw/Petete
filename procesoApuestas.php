@@ -3,7 +3,11 @@ ob_start();
 session_start();
 
 include 'Conectar.php';
-
+ if (isset($_SESSION['contador'])){
+     $_SESSION['contador']++;
+ }else{
+     $_SESSION['contador']=0;
+ }
 $jornada = $_POST['jor'];
 $fecha = $_POST['fec'];
 $local = $_POST['loc'];
@@ -19,7 +23,9 @@ $arrayApuesta = array();
     $arrayApuesta[3] = $visitante;
     $arrayApuesta[4] = $tasa;
     $arrayApuesta[5] = $tipo;
-  
     
+    
+
+    $_SESSION['arrayApuestas'][$_SESSION['contador']]=$arrayApuesta;   
 header("location:futbol.php");
 ?>
