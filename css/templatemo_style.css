@@ -264,7 +264,7 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 
 #templatemo_footer { 
 	color: #bebeb2; 
-	font-size: 11px;
+	font-size: 15px;
 }
 
 .footer_list { 
@@ -737,4 +737,18 @@ padding-bottom:12px;
   }
   #partidos input{
 	width:80px;
+  }
+  
+  #login a{
+      color:orange;
+  }
+  
+  #login a:hover{
+      color:orange;
+      text-decoration: none;
+  }
+  
+  #login img{
+      width:20px;
+      height:20px;
   }

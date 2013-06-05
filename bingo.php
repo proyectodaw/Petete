@@ -21,35 +21,23 @@ $(document).ready(function(){
 
          $("#divDin").css("display", "block");
          $("#divJug").css("display", "none");
-	 $("#divDat").css("display", "none");
-         $("#divCod").css("display", "none");
+		 $("#divDat").css("display", "none");
     
 	});
 	$("#misJugadas").click(function(evento){
 
          $("#divJug").css("display", "block");
          $("#divDin").css("display", "none");
-	 $("#divDat").css("display", "none");
-         $("#divCod").css("display", "none");
+		 $("#divDat").css("display", "none");
     
 	});
 	$("#misDatos").click(function(evento){
 
          $("#divDat").css("display", "block");
          $("#divJug").css("display", "none");
-	 $("#divDin").css("display", "none");
-         $("#divCod").css("display", "none");
+		 $("#divDin").css("display", "none");
     
-        });     
-        $("#codigoProm").click(function(evento){
-
-         $("#divCod").css("display", "block");
-         $("#divDat").css("display", "none");
-         $("#divJug").css("display", "none");
-	 $("#divDin").css("display", "none");
-         
-    
-        });
+   });
 });
 </script>
 <script type="text/javascript" src="js/swfobject/swfobject.js"></script>
@@ -140,60 +128,11 @@ ddsmoothmenu.init({
     </div> <!-- END of header -->
 </div>
 <br><br><br><br>
-<div id="perfil">
-<ul id="button">
-		<li id="miDinero"><a href="#">Mi Dinero</a></li>
-		<li id="misJugadas"><a href="#">Mis Jugadas</a></li>
-		<li id="misDatos"><a href="#">Mis Datos</a></li>
-                <li id="codigoProm"><a href="#">Códigos Promo</a></li>
-	</ul><br><br><br><br><br>
-	<div id="divDin" style="display: none;">
-		<h3>Mi Dinero</h3>
-		<p>Indícanos el importe que deseas depositar en tu monedero</p>
-		<p>Importe (mín 5€)</p><br>
-		<form id="frmIncremeto" action="#" method="POST">
-		<input type="text" id="incremento" name="incremento" />
-		<input type="submit" value="Enviar"/>
-		</form>
-	</div>
-
-
-	<div id="divJug" style="display: none;">
-		<h3>Mis Jugadas</h3>
-		<p>Esta es la actividad de juego en nuestro Casino</p>
-		<div id="historial"></div>
-	</div>
-
-
-	<div id="divDat" style="display: none;">
-		<h3>Mis Datos</h3>
-		<form id="frmModDatos" action="#" method="POST">
-			Email<br><input type="text" id="email" placeholder="Email"/><br>
-			Repite el Email<br><input type="text" id="repite_email" placeholder="Email"/><br>
-			Telefono<br><input type="text" id="telefono" placeholder="Telefono"/><br>
-			Pais<br>
-			<select name="pais" id="pais">
-				<option>España</option>
-				<option>Alemania</option>
-				<option>Inglaterra</option>
-				<option>Francia</option>
-			</select><br>                       
-			Provincia<br><input type="text" id="provincia" placeholder="Provincia"/><br>
-			Poblacion<br><input type="text" id="poblacion" placeholder="Poblacion"/><br>
-			Dirección<br><input type="text" id="direccion" placeholder="Direccion"/><br>
-			Código Postal<br><input type="text" id="postal" placeholder="Codigo Postal"/><br>
-			<br><br>
-			<input type="submit" value="Enviar"/>
-		</form>
-	</div>
-                            
-        <div id="divCod" style="display: none;">
-		<h3>Codigos Promo</h3>
-                <form <form id="frmCod" action="#" method="POST">>
-                    Introduce tu Código Promocional<input type="text" id="codigoProm" /><input type="submit" value="Enviar"/>
-                </form>
-	</div>
-</div><br><br><br>
+<div style="text-align: center">
+    <h1>BINGO</h1>
+    <p>Página en construcción. Proximamente... </p>
+</div>
+                
     <div class="cleaner"></div>
 </div> <!-- END of main -->
 
