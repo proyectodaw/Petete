@@ -34,7 +34,7 @@ $arrayP = array();
 annadirPartido($arrayP, $conexion);
 
 function annadirPartido($arrayP, $conexion) {
-        if ($resultado = $conexion->query("insert into tabla_futbol values('$arrayP[0]','$arrayP[1]',
+        if ($conexion->query("insert into tabla_futbol values('$arrayP[0]','$arrayP[1]',
             '$arrayP[2]','$arrayP[3]','$arrayP[4]','$arrayP[5]','$arrayP[6]','$arrayP[7]',NULL)")) {
             return $arrayP;
         } else {
