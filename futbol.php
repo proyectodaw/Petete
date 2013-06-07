@@ -89,14 +89,14 @@ ddsmoothmenu.init({
                 <li><a href="futbol.php">Fútbol</a></li>
                 <li><a href="#">Baloncesto</a></li>
                 <li><a href="#">Tenis</a></li>
-				<li><a href="#">Galgos</a></li>
+		<li><a href="#">Galgos</a></li>
                 <li><a href="#">Bingo</a></li>
             </ul>
             <br style="clear: left" />
         </div> <!-- end of templatemo_menu -->
     </div> <!-- END of header -->
 </div>
-    
+
 	
 <div id="futbol">
 		<h3>Próximos Partidos</h3>
@@ -110,7 +110,6 @@ ddsmoothmenu.init({
 				<th id="th_plo">1</th>
 				<th id="th_pem">X</th>
 				<th id="th_pvi">2</th>
-				<th id="th_res">Resultado</th>
 			<tr>
                          <?php
                         
@@ -130,8 +129,7 @@ ddsmoothmenu.init({
                                 <td headers='th_plo'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='local'/><input type='submit' value='%s €' /></form></td>               
                                 <td headers='th_pem'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='empate'/><input type='submit' value='%s €' /></form></td>
                                 <td headers='th_pvi'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='visitante'/><input type='submit' value='%s €' /></form></td>
-                                <td headers='th_res'>%s</td>
-                                </tr>", $fila["id_partidof"], $fila["fecha"], $fila["hora_ini"], $fila["local"],$fila["visitante"], $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_local"], $fila["precio_local"], $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_empate"], $fila["precio_empate"], $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_visitante"], $fila["precio_visitante"], $fila["resultado"]);
+                                </tr>", $fila["id_partidof"], $fila["fecha"], $fila["hora_ini"], $fila["local"],$fila["visitante"], $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_local"], $fila["precio_local"], $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_empate"], $fila["precio_empate"], $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_visitante"], $fila["precio_visitante"]);
                    
                       
                     }
@@ -140,9 +138,51 @@ ddsmoothmenu.init({
 		</table>
 	<?php
         
+         print("<h3>Últimos partidos finalizados</h3>
+		<table id='partidos'>
+			<tr>
+                                <th id='th_jor_h'>Jornada</th>
+				<th id='th_fec_h'>Fecha</th>
+				<th id='th_hin_h'>Hora Inicio</th>
+				<th id='th_loc_h'>Local</th>
+				<th id='th_vis_h'>Visitante</th>
+				<th id='th_plo_h'>1</th>
+				<th id='th_pem_h'>X</th>
+				<th id='th_pvi_h'>2</th>
+				<th id='th_res_h'>Resultado</th>
+			<tr>
+                       "); 
+                        
+                        $conexion2 = conectar();
+                        $select2 = "select * from historico_futbol";
+                        $resultado2 = $conexion2->query($select2);
+
+                if ($resultado2) {
+                    
+                
+                    while ($fila2 = $resultado2->fetch_assoc()) {
+                        printf("
+                        <tr>
+                                <td headers='th_jor_h'>%d</td> 
+                                <td headers='th_fec_h'>%s</td> 
+                                <td headers='th_hin_h'>%s</td> 
+                                <td headers='th_loc_h'>%s</td> 
+                                <td headers='th_vis_h'>%s</td> 
+                                <td headers='th_plo_h'>%s €</td>               
+                                <td headers='th_pem_h'>%s €</td>
+                                <td headers='th_pvi_h'>%s €</td>
+                                <td headers='th_res_h'>%s</td>
+                                </tr>", $fila2["id_partidof"], $fila2["fecha"], $fila2["hora_ini"], $fila2["local"],$fila2["visitante"], $fila2["precio_local"], $fila2["precio_empate"], $fila2["precio_visitante"], $fila2["resultado"]
+                        );
+                   
+                      
+                    }
+                }
+        
         if($_SESSION['datosUsuario']['tipo_usuario']=="administrador"){
         print("    
 	<div id='administrador'>
+        <h3>Insertar partidos</h3>
                 <table id='partidos'>
 			<tr>
                                 <th>Jornada</th>
@@ -153,7 +193,7 @@ ddsmoothmenu.init({
 				<th>1</th>
 				<th>X</th>
 				<th>2</th>
-				<th>Resultado</th>
+                                <th> </th>
 			<tr>
                             <form id='fPartidos' action='procesoPartidos.php' method='post'>
                         <tr>
@@ -166,19 +206,64 @@ ddsmoothmenu.init({
                                 <td><input type='text' name='p_local' id='p_local' placeholder='Precio local'/></td>
                                 <td><input type='text' name='p_empate' id='p_empate' placeholder='Precio empate'/></td>
                                 <td><input type='text' name='p_visitante' id='p_visitante' placeholder='Precio visitante'/></td>
-                        </tr>
-                        <tr>
                                 <td><input type='submit' id='annadir' value='Añadir' /></td>
                         </tr>
-                       
-                             </form>
+                            </form>
 
 		</table>
 		
 	</div>
-        ");            
+        ");
+        
+                  
+	
+        
+       
         }
-	?> 
+	
+        printf("
+            <h3>Actualizar resultado</h3>
+        <table id='partidos'>
+			<tr>
+                                <th id='th_jor_r'>Jornada</th>
+				<th id='th_fec_r'>Fecha</th>
+				<th id='th_hin_r'>Hora Inicio</th>
+				<th id='th_loc_r'>Local</th>
+				<th id='th_vis_r'>Visitante</th>
+                                <th id='th_plo_r'>1</th>
+				<th id='th_pem_r'>X</th>
+				<th id='th_pvi_r'>2</th>
+				<th id='th_res_r'>Resultado</th>
+			<tr>
+                     ");
+                        
+                        $conexion3 = conectar();
+                        $select3 = "select * from tabla_futbol";
+                        $resultado3 = $conexion3->query($select3);
+
+                if ($resultado3) {
+                    while ($fila3 = $resultado3->fetch_assoc()) {
+                        if($fila3["resultado"]==null){
+                        printf("
+                        <form id='fResultado' action='procesoResultado.php' method='post'>
+                        <tr>
+                                <td headers='th_jor_r'><input type='text' name='r_jor' value='%d' readonly='readonly' /></td> 
+                                <td headers='th_fec_r'><input type='text' name='r_fec' value='%s' readonly='readonly' /></td> 
+                                <td headers='th_hin_r'><input type='text' name='r_hin' value='%s' readonly='readonly' /></td> 
+                                <td headers='th_loc_r'><input type='text' name='r_loc' value='%s' readonly='readonly' /></td> 
+                                <td headers='th_vis_r'><input type='text' name='r_vis' value='%s' readonly='readonly' /></td> 
+                                <td headers='th_plo_r'><input type='text' name='r_plo' value='%s' readonly='readonly' /></td>               
+                                <td headers='th_pem_r'><input type='text' name='r_pem' value='%s' readonly='readonly' /></td>
+                                <td headers='th_pvi_r'><input type='text' name='r_pvi' value='%s' readonly='readonly' /></td>
+                                <td headers='th_res_r'><input type='text' name='r_res' value='' /><input type='submit' id='actualizar' value='Actualizar' /></td>
+                                </tr></form>", $fila3["id_partidof"], $fila3["fecha"], $fila3["hora_ini"], $fila3["local"],$fila3["visitante"], $fila3["precio_local"], $fila3["precio_empate"], $fila3["precio_visitante"]);
+                        }
+                      
+                    }
+                }
+                ?>  
+		</table>
+                
 </div>
 
 	
