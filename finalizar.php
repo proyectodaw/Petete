@@ -1,11 +1,4 @@
-<?php 
-session_start(); 
-if(isset($_SESSION['datosUsuario'])){
-    
-}else{
-    header("location:index.php");
-}
-?>
+<?php session_start();?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -117,7 +110,7 @@ ddsmoothmenu.init({
         <div id="templatemo_menu" class="ddsmoothmenu">
             <ul>
                 <li><a href="index.php" class="selected">Inicio</a></li>
-                <li><a href="futbol.php">Futbol</a></li>
+                <li><a href="futbol.php">Fútbol</a></li>
                 <li><a href="#">Baloncesto</a></li>
                 <li><a href="#">Tenis</a></li>
 				<li><a href="#">Galgos</a></li>
@@ -127,10 +120,17 @@ ddsmoothmenu.init({
         </div> <!-- end of templatemo_menu -->
     </div> <!-- END of header -->
 </div>
-<br><br><br><br>
+    <br /><br /><br /><br />
+    <br /><br /><br /><br />
 <div style="text-align: center">
-    <h1>REGISTRO FINALIZADO</h1>
-    <p>El Usuario ha sido registrado correctamente. Se le ha enviado un e-mail a su correo para la confirmación de su cuenta.</p>
+    <h1>REGISTRO FINALIZADO</h1><br /><br />
+    <p>El Usuario ha sido registrado correctamente. Se le ha enviado un e-mail a su correo para la confirmación de su cuenta. <br />
+       Revise la bandeja de SPAM, puede que el email se encuentre alojado allí.</p><br />
+    <p>En el email también recibira un bono de bienvenida de 20€ como obsequio de PETETE Apuestas. <br />
+       Para activar el bono, una vez activada su cuenta PETETE, deberá de introducir dicho código en su página de usuario en <br />
+       la pestaña "Códigos Promo".</p>
+    <br /><br /><br /><br />
+    <br /><br /><br /><br />
 </div>
                 
     <div class="cleaner"></div>
@@ -148,9 +148,9 @@ ddsmoothmenu.init({
 			</ul>   
         </div>
         <div class="col col_14">
-        	<h5>Paginas</h5>
+        	<h5>Páginas</h5>
             <ul class="footer_list">
-            	<li><a href="futbol.php">Futbol</a></li>
+            	<li><a href="futbol.php">Fútbol</a></li>
                 <li><a href="#">Baloncesto</a></li>
                 <li><a href="#">Tenis</a></li>
                 <li><a href="#">Galgos</a></li>
@@ -170,7 +170,7 @@ ddsmoothmenu.init({
         <div class="col col_14 no_margin_right">
         	
             <div class="cleaner h30"></div>
-            Copyright � 2048 <a href="#">PETETE</a><br> Dise�ado por <a href="#">Alumnos DAW</a>
+            Copyright © 2048 <a href="#">PETETE</a><br> Diseñado por <a href="#">Alumnos DAW</a>
         </div>
         
     <div class="cleaner"></div>

@@ -85,10 +85,10 @@
                 }
             }
             @$tipoUsuario=$_SESSION['datosUsuario']['tipo_usuario'];
-            if (@$tipoUsuario=='activo') {
+            if (@$tipoUsuario=='activo' || $tipoUsuario=='administrador') {
                 unset($_SESSION['error']);
-                printf("<p><img src='images/user.png' /> <a href='perfil.php'>" . $_SESSION['datosUsuario']['nombre'] . "</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
-                printf("<img src='images/cerdo.png' />Saldo actual: " . $_SESSION['datosUsuario']['saldo'] . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+                printf("<p><img src='images/user.png' width='20px' height='20px' /> <a href='perfil.php'>" . $_SESSION['datosUsuario']['nombre'] . "</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+                printf("<img src='images/cerdo.png' width='20px' height='20px' />Saldo: " . $_SESSION['datosUsuario']['saldo'] . "€" . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
                 printf("<input type = 'submit' id = 'cerrar' value = 'Cerrar sesion' onclick='" . $cerrarSesion . "' /></p>");
             } else {
                 if (isset($_SESSION['error'])) {
@@ -174,7 +174,7 @@
                     </ul>   
                 </div>
                 <div class="col col_14">
-                    <h5>Paginas</h5>
+                    <h5>Páginas</h5>
                     <ul class="footer_list">
                         <li><a href="futbol.php">Futbol</a></li>
                         <li><a href="#">Baloncesto</a></li>

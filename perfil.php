@@ -96,7 +96,7 @@ ddsmoothmenu.init({
 	classname: 'ddsmoothmenu', //class added to menu's outer DIV
 	//customtheme: ["#1c5a80", "#18374a"],
 	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
-})
+});
 
 </script> 
 </head>
@@ -139,20 +139,20 @@ ddsmoothmenu.init({
         </div> <!-- end of templatemo_menu -->
     </div> <!-- END of header -->
 </div>
-<br><br><br><br>
+<br /><br /><br /><br />
 <div id="perfil">
 <ul id="button">
 		<li id="miDinero"><a href="#">Mi Dinero</a></li>
 		<li id="misJugadas"><a href="#">Mis Jugadas</a></li>
 		<li id="misDatos"><a href="#">Mis Datos</a></li>
                 <li id="codigoProm"><a href="#">Códigos Promo</a></li>
-	</ul><br><br><br><br><br>
+	</ul><br /><br /><br /><br />
 	<div id="divDin" style="display: none;">
 		<h3>Mi Dinero</h3>
 		<p>Indícanos el importe que deseas depositar en tu monedero</p>
 		<p>Importe (mín 5€)</p><br>
-		<form id="frmIncremeto" action="#" method="POST">
-		<input type="text" id="incremento" name="incremento" />
+		<form id="frmIncremeto" action="procesoDinero.php" method="POST">
+		<input type="text" id="dinero" name="dinero" />
 		<input type="submit" value="Enviar"/>
 		</form>
 	</div>
@@ -170,7 +170,7 @@ ddsmoothmenu.init({
 		<form id="frmModDatos" action="#" method="POST">
 			Email<br><input type="text" id="email" placeholder="Email"/><br>
 			Repite el Email<br><input type="text" id="repite_email" placeholder="Email"/><br>
-			Telefono<br><input type="text" id="telefono" placeholder="Telefono"/><br>
+			Teléfono<br><input type="text" id="telefono" placeholder="Telefono"/><br>
 			Pais<br>
 			<select name="pais" id="pais">
 				<option>España</option>
@@ -179,7 +179,7 @@ ddsmoothmenu.init({
 				<option>Francia</option>
 			</select><br>                       
 			Provincia<br><input type="text" id="provincia" placeholder="Provincia"/><br>
-			Poblacion<br><input type="text" id="poblacion" placeholder="Poblacion"/><br>
+			Población<br><input type="text" id="poblacion" placeholder="Poblacion"/><br>
 			Dirección<br><input type="text" id="direccion" placeholder="Direccion"/><br>
 			Código Postal<br><input type="text" id="postal" placeholder="Codigo Postal"/><br>
 			<br><br>
@@ -188,12 +188,12 @@ ddsmoothmenu.init({
 	</div>
                             
         <div id="divCod" style="display: none;">
-		<h3>Codigos Promo</h3>
-                <form <form id="frmCod" action="#" method="POST">>
-                    Introduce tu Código Promocional<input type="text" id="codigoProm" /><input type="submit" value="Enviar"/>
+		<h3>Códigos Promo</h3>
+                <form <form id="frmCod" action="procesoCodigoPromo.php" method="POST">>
+                    Introduce tu Código Promocional<input type="text" id="codigo" name="codigo"/><input type="submit" value="Enviar"/>
                 </form>
 	</div>
-</div><br><br><br>
+</div><br /><br /><br />
     <div class="cleaner"></div>
 </div> <!-- END of main -->
 
@@ -201,7 +201,7 @@ ddsmoothmenu.init({
 	<div id="templatemo_footer">
 	
 		<div class="col col_14">
-        	<h5>Informacion Interna</h5>
+        	<h5>Información Interna</h5>
             <ul class="footer_list">
                 <li><a href="about.php">Sobre nosotros...</a></li>
                 <li><a href="contact.php">Contacto</a></li>
@@ -209,9 +209,9 @@ ddsmoothmenu.init({
 			</ul>   
         </div>
         <div class="col col_14">
-        	<h5>Paginas</h5>
+        	<h5>Páginas</h5>
             <ul class="footer_list">
-            	<li><a href="futbol.php">Futbol</a></li>
+            	<li><a href="futbol.php">Fútbol</a></li>
                 <li><a href="#">Baloncesto</a></li>
                 <li><a href="#">Tenis</a></li>
                 <li><a href="#">Galgos</a></li>
@@ -231,7 +231,7 @@ ddsmoothmenu.init({
         <div class="col col_14 no_margin_right">
         	
             <div class="cleaner h30"></div>
-            Copyright � 2048 <a href="#">PETETE</a><br> Dise�ado por <a href="#">Alumnos DAW</a>
+            Copyright © 2048 <a href="#">PETETE</a><br> Diseñado por <a href="#">Alumnos DAW</a>
         </div>
         
     <div class="cleaner"></div>

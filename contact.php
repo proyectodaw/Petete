@@ -102,18 +102,18 @@ ddsmoothmenu.init({
     <div class="col_12 float_r">
     	<h4>Pongase en contacto con nosotros.</h4>
         <div id="contact_form">
-           <form method="post" name="contact" action="#">
+           <form method="post" name="contact" action="procesoContacto.php">
                         
-                        <label for="author">Nombre:</label> <input type="text" id="author" name="author" class="required input_field" />
+                        <label for="author">Nombre:</label> <input type="text" id="author" name="nombre" class="required input_field" />
                         <div class="cleaner h10"></div>
                         <label for="email">Email:</label> <input type="text" id="email" name="email" class="validate-email required input_field" />
                         <div class="cleaner h10"></div>
                         
-						<label for="subject">Asunto:</label> <input type="text" name="subject" id="subject" class="input_field" />
+						<label for="subject">Asunto:</label> <input type="text" name="asunto" id="subject" class="input_field" />
 
 						<div class="cleaner h10"></div>
         
-                        <label for="text">Mensaje:</label> <textarea id="text" name="text" rows="0" cols="0" class="required"></textarea>
+                        <label for="text">Mensaje:</label> <textarea id="text" name="mensaje" rows="0" cols="0" class="required"></textarea>
                         <div class="cleaner h10"></div>
                         
                         <input type="submit" value="Enviar" id="submit" name="submit" class="submit_btn float_l" />

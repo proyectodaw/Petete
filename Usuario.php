@@ -82,6 +82,30 @@ class Usuario {
         }
         return $existe;
     }
+    
+    public function ingresarDinero($usuario, $dinero, $conexion){
+        $ingreso = "update usuarios set saldo=saldo+'$dinero' where usuario='$usuario'";
+        $resultado=$conexion->query($ingreso);
+        if($resultado){
+            $consulta="select saldo from usuarios where usuario='$usuario'";
+            $resultado=$conexion->query($consulta);
+            $saldo=$resultado->fetch_assoc();
+            return $saldo['saldo'];
+        }
+    }
+    
+    public function ingresarCodigoPromo($usuario, $codigoPromo, $conexion){
+        $ingreso = "update usuarios set saldo=saldo+'$dinero' where usuario='$usuario'";
+        $resultado=$conexion->query($ingreso);
+        if($resultado){
+            $consulta="select saldo from usuarios where usuario='$usuario'";
+            $resultado=$conexion->query($consulta);
+            $saldo=$resultado->fetch_assoc();
+            return $saldo['saldo'];
+        }
+    }
+    
+    
 
 }
 
