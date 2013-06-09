@@ -82,30 +82,51 @@ class Usuario {
         }
         return $existe;
     }
-    
-    public function ingresarDinero($usuario, $dinero, $conexion){
+
+    public function ingresarDinero($usuario, $dinero, $conexion) {
         $ingreso = "update usuarios set saldo=saldo+'$dinero' where usuario='$usuario'";
-        $resultado=$conexion->query($ingreso);
-        if($resultado){
-            $consulta="select saldo from usuarios where usuario='$usuario'";
-            $resultado=$conexion->query($consulta);
-            $saldo=$resultado->fetch_assoc();
+        $resultado = $conexion->query($ingreso);
+        if ($resultado) {
+            $consulta = "select saldo from usuarios where usuario='$usuario'";
+            $resultado = $conexion->query($consulta);
+            $saldo = $resultado->fetch_assoc();
             return $saldo['saldo'];
         }
     }
-    
-    public function ingresarCodigoPromo($usuario, $codigoPromo, $conexion){
-        $ingreso = "update usuarios set saldo=saldo+'$dinero' where usuario='$usuario'";
-        $resultado=$conexion->query($ingreso);
-        if($resultado){
-            $consulta="select saldo from usuarios where usuario='$usuario'";
-            $resultado=$conexion->query($consulta);
-            $saldo=$resultado->fetch_assoc();
-            return $saldo['saldo'];
+
+    public function ingresarCodigoPromo($usuario, $codigoPromo, $estadoCodigo, $conexion) {
+        $array = array();
+        if ($estadoCodigo == "inactivo") {
+            $select = "select codigo_promo from usuarios where usuario='$usuario'";
+            $resultado = $conexion->query($select);
+            $codigoBBDD = $resultado->fetch_assoc();
+            if ($codigoBBDD['codigo_promo'] == $codigoPromo) {
+                $activar = "update usuarios set estado_codigo='activo' where usuario='$usuario'";
+                $conexion->query($activar);
+                $ingreso = "update usuarios set saldo=saldo+10 where usuario='$usuario'";
+                $resultado = $conexion->query($ingreso);
+                if ($resultado) {
+                    $consulta = "select saldo from usuarios where usuario='$usuario'";
+                    $resultado = $conexion->query($consulta);
+                    $saldo = $resultado->fetch_assoc();
+                    
+                    $array[0]=$saldo['saldo'];
+                    
+                    $consulta2 = "select estado_codigo from usuarios where usuario='$usuario'";
+                    $resultado2 = $conexion->query($consulta2);
+                    $estado = $resultado2->fetch_assoc();
+                    
+                    $array[1]=$estado['estado_codigo'];
+                    
+                    return $array;
+                }
+            }else{
+                return false;
+            }
+        }else{
+            return false;
         }
     }
-    
-    
 
 }
 
