@@ -45,36 +45,54 @@ ddsmoothmenu.init({
 <body id="home">
 <div class="login">
             <?php
-            include 'Conectar.php';
-            $cerrarSesion='javascript:location.href="cerrarSesion.php"';
-            
-            if (isset($_SESSION['datosUsuario']['usuario'])) {
-                printf("<p>Hola <a href='perfil.php'>" . $_SESSION['datosUsuario']['nombre'] . "</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
-                printf("Saldo actual: " . $_SESSION['datosUsuario']['saldo'] . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
-                printf("<input type = 'submit' id = 'cerrar' value = 'Cerrar sesion' onclick='".$cerrarSesion."' /></p>");
+            include './Conectar.php';
+            include './Usuario.php';
+            $cerrarSesion = 'javascript:location.href="cerrarSesion.php"';
+            $conexion = conectar();
+            @$codigoActivacion = $_GET['cA'];
+
+            if (isset($codigoActivacion)) {
+                $user = new Usuario();
+                $datosUsuario = $user->validarCodigoActivacion($codigoActivacion, $conexion);
+                if ($datosUsuario) {
+                    $_SESSION['datosUsuario'] = $datosUsuario;
+                    
+                } else {
+                    $_SESSION['error'] = "NO EXISTE CÓDIGO ACTIVACION O YA HA SIDO UTILIZADO";
+                }
+            }
+            @$tipoUsuario=$_SESSION['datosUsuario']['tipo_usuario'];
+            if (@$tipoUsuario=='activo' || $tipoUsuario=='administrador') {
+                unset($_SESSION['error']);
+                printf("<p><img src='images/user.png' width='20px' height='20px' /> <a href='perfil.php'>" . $_SESSION['datosUsuario']['nombre'] . "</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+                printf("<img src='images/dinero.png' width='20px' height='20px' /> " . $_SESSION['datosUsuario']['saldo'] . "€" . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+                printf("<input type = 'submit' id = 'cerrar' value = 'Cerrar sesion' onclick='" . $cerrarSesion . "' /></p>");
             } else {
+                if (isset($_SESSION['error'])) {
+                    print'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $_SESSION['error'];
+                }
                 print'<form id="login" name="login" method="POST" action="logear.php">
 		<input type="text" id="usuario" name="usuario" placeholder="Usuario"/>
 		<input type="password" id="password" name="password" placeholder="Password"/>
 		<input type="submit" id="enviar" name="enviar" value="Entrar" />
                 &nbsp;
-                <a href="registro.html">Registrate</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="registro.php">Registrate</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="recuperar.php">Recuperar contraseña</a>
 		</form>';
             }
             ?>            
-</div>
+        </div>
 <div id="templatemo_header_wrapper">
     <div id="templatemo_header">
-        <div id="site_title"><a href="index.html">PE<span>TETE</span></a></div>
+        <div id="site_title"><a href="index.php">PE<span>TETE</span></a></div>
         <div id="templatemo_menu" class="ddsmoothmenu">
             <ul>
-                <li><a href="index.html" class="selected">Inicio</a></li>
-                <li><a href="futbol.html">Futbol</a></li>
-                <li><a href="#">Baloncesto</a></li>
-                <li><a href="#">Tenis</a></li>
-				<li><a href="#">Galgos</a></li>
-                <li><a href="#">Bingo</a></li>
+                <li><a href="index.php" class="selected">Inicio</a></li>
+                <li><a href="futbol.php">Futbol</a></li>
+                <li><a href="baloncesto.php">Baloncesto</a></li>
+                <li><a href="tenis.php">Tenis</a></li>
+		<li><a href="galgo.php">Galgos</a></li>
+                <li><a href="bingo.php">Bingo</a></li>
             </ul>
             <br style="clear: left" />
         </div> <!-- end of templatemo_menu -->
@@ -87,8 +105,10 @@ ddsmoothmenu.init({
         <h2>Nuestra Historia</h2>
         <img src="images/templatemo_image_01.jpg" alt="Image 01" class="float_l img_float_l" />
         <p><em> Cración de un Proyecto.</em></p>
-        <p>Nullam laoreet nisi eu felis iaculis nec convallis augue egestas. Donec ut lacus tellus. Sed dictum, magna laoreet vehicula posuere, tortor justo dictum ante, nec ultrices elit dolor ac nisl. Sed at porttitor ante. <a href="#">Cras massa nisl</a>, dictum et molestie non, pretium vel massa. Integer in erat ipsum, ut tristique velit. Vivamus tempus velit justo, sit amet cursus lorem. In hac habitasse platea dictumst. Aenean sagittis condimentum quam, non aliquam neque scelerisque in. In hac habitasse platea dictumst. Donec nunc dolor, rhoncus sit amet posuere at, lacinia eget arcu. Nulla adipiscing auctor pellentesque.</p>
-        <p>Aenean viverra leo in augue pulvinar volutpat. Sed feugiat nisl nec eros vestibulum vitae vulputate ligula eleifend. Quisque rhoncus mattis ante at dictum. Aliquam non porttitor erat. Curabitur ornare dapibus urna vitae sollicitudin. Nullam dictum auctor neque <a href="#">sit amet tristique</a>. Phasellus quis urna tellus, eu vestibulum urna. Nulla ac purus nibh, quis iaculis libero. Ut sem orci, fermentum in tincidunt at, luctus et orci. Cras aliquam lobortis tortor quis dignissim. Vivamus egestas aliquet est, a pharetra tellus adipiscing sit amet. Nullam tincidunt malesuada nulla, at aliquet orci semper vel. Suspendisse dignissim, nibh vel tempor pharetra, sem sapien egestas lorem, et aliquet eros quam non felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Validate <a href="http://validator.w3.org/check?uri=referer" rel="nofollow"><strong>XHTML</strong></a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow"><strong>CSS</strong></a>.</p>
+        <p>TARGET es un atributo implementado por exigencias relacionadas con la gestión de los marcos. En una página dividida en marcos, este atributo indica en cuáles de ellos debe quedar visualizado el documento. No entraremos aquí en detalles sobre los marcos ya que comentaremos este tema más adelante.
+
+Sin embargo, sí nos ocuparemos aquí de otro uso de este atributo: gracias a TARGET podemos cargar una página asociada a HREF en otra ventana del navegador usando la siguiente sintaxis.</p>
+        <p>El empleo de distintas ventanas para cada enlace es muy útil cuando se manda a recursos externos ya que nos permite no perder al visitante: el usuario de este modo tendrá abiertas dos ventanas y no dejará de tener disponible nuestra página.Hasta ahora hemos analizado los enlaces con recursos externos o con páginas diversas de un mismo sitio. Sin embargo, podemos asimismo crear enlaces con puntos específicos de un mismo documento gracias al código A NAME="ancora". En otras palabras, si con los enlaces examinados hasta ahora llegamos a un documento, con A NAME llegamos a una parte concreta del documento.</p>
 	</div>
     <div class="col col_13 no_margin_right">
     	<h3>Testimonios</h3>
@@ -100,6 +120,10 @@ ddsmoothmenu.init({
             <p>"Mi casa fue el Cuartel General."</p>
             <div class="cleaner"></div>
             <cite>Ismael Cirre<a href="#"><span> - DAW, PETETE's Comany</span></a></cite></div>
+        <div class="testimonial">
+            <p>"Soy una puta maquina. Sin mi seria todo diferente."</p>
+            <div class="cleaner"></div>
+            <cite>Raul Abril<a href="#"><span> - DAW, PETETE's Comany</span></a></cite></div>
     </div>    
     <div class="cleaner h40"></div>
 
@@ -112,28 +136,28 @@ ddsmoothmenu.init({
 		<div class="col col_14">
         	<h5>Informacion Interna</h5>
             <ul class="footer_list">
-                <li><a href="about.html">Sobre nosotros...</a></li>
-                <li><a href="contact.html">Contacto</a></li>
-            	<li><a href="registro.html">Registro</a></li>
+                <li><a href="about.php">Sobre nosotros...</a></li>
+                <li><a href="contact.php">Contacto</a></li>
+            	<li><a href="registro.php">Registro</a></li>
 			</ul>   
         </div>
         <div class="col col_14">
         	<h5>Paginas</h5>
             <ul class="footer_list">
-            	<li><a href="futbol.html">Futbol</a></li>
-                <li><a href="#">Baloncesto</a></li>
-                <li><a href="#">Tenis</a></li>
-                <li><a href="#">Galgos</a></li>
-                <li><a href="#">Bingo</a></li>
+            	<li><a href="futbol.php">Futbol</a></li>
+                <li><a href="baloncesto.php">Baloncesto</a></li>
+                <li><a href="tenis.php">Tenis</a></li>
+                <li><a href="galgos.php">Galgos</a></li>
+                <li><a href="bingo.php">Bingo</a></li>
 			</ul>
         </div>
         <div class="col col_14">
         	<h5>Siguenos en</h5>	
             <ul class="footer_list">
-                <li><a href="#" class="social facebook">Facebook</a></li>
-                <li><a href="#" class="social twitter">Twitter</a></li>
-                <li><a href="#" class="social feed">Feed</a></li>
-			</ul>
+                <li><a href="www.facebook.com" class="social facebook">Facebook</a></li>
+                <li><a href="www.twitter.com" class="social twitter">Twitter</a></li>
+                <li><a href="www.marca.com" class="social feed">Feed</a></li>
+            </ul>
             
         </div>
         

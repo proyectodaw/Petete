@@ -88,7 +88,7 @@
             if (@$tipoUsuario=='activo' || $tipoUsuario=='administrador') {
                 unset($_SESSION['error']);
                 printf("<p><img src='images/user.png' width='20px' height='20px' /> <a href='perfil.php'>" . $_SESSION['datosUsuario']['nombre'] . "</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
-                printf("<img src='images/cerdo.png' width='20px' height='20px' />Saldo: " . $_SESSION['datosUsuario']['saldo'] . "€" . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+                printf("<img src='images/dinero.png' width='20px' height='20px' /> " . $_SESSION['datosUsuario']['saldo'] . "€" . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
                 printf("<input type = 'submit' id = 'cerrar' value = 'Cerrar sesion' onclick='" . $cerrarSesion . "' /></p>");
             } else {
                 if (isset($_SESSION['error'])) {
@@ -112,10 +112,10 @@
                     <ul>
                         <li><a href="index.php" class="selected">Inicio</a></li>
                         <li><a href="futbol.php">Futbol</a></li>
-                        <li><a href="#">Baloncesto</a></li>
-                        <li><a href="#">Tenis</a></li>
-                        <li><a href="#">Galgos</a></li>
-                        <li><a href="#">Bingo</a></li>
+                        <li><a href="baloncesto.php">Baloncesto</a></li>
+                        <li><a href="tenis.php">Tenis</a></li>
+                        <li><a href="galgos.php">Galgos</a></li>
+                        <li><a href="bingo.php">Bingo</a></li>
                     </ul>
                     <br style="clear: left" />
                 </div> <!-- end of templatemo_menu -->
@@ -139,25 +139,25 @@
             </div>
             <div class="fp_box5">
                 <img src="images/baloncesto.png" alt="Image 02" width="48px" height="48px"/>
-                <h2><a href="#">Baloncesto</a></h2>
+                <h2><a href="baloncesto.php">Baloncesto</a></h2>
                 <p>Todo sobre la NBA, la mejor liga de Baloncesto del Mundo</p>
             </div>
             <div class="fp_box5">
                 <img src="images/tenis.png" alt="Image 03" width="48px" height="48px"/>
-                <h2><a href="#">Tenis</a></h2>
+                <h2><a href="tenis.php">Tenis</a></h2>
                 <p>Si tu deporte es el Tenis, juegatela con nuestra gran variedad de apuestas.</p>
             </div>
             <div class="fp_box5">
                 <img src="images/galgo.png" alt="Image 04" width="48px" height="48px"/>
-                <h2><a href="#">Galgos</a></h2>
+                <h2><a href="galgos.php">Galgos</a></h2>
                 <p>Si lo tuyo son las carreras de galgos, este es tu sitio.</p>
             </div>
             <div class="fp_box5 no_margin_right">
                 <img src="images/bingo.png" alt="Image 05" width="48px" height="48px"/>
-                <h2><a href="#">Bingo</a></h2>
+                <h2><a href="bingo.php">Bingo</a></h2>
                 <p>Si te gusta el Bingo, este es tu sitio. ¡Entretenimiento y premios para todos!</p>
             </div>
-            <div class="cleaner h50"></div>
+        
 
             <div class="cleaner"></div>
         </div> <!-- END of main -->
@@ -177,18 +177,18 @@
                     <h5>Páginas</h5>
                     <ul class="footer_list">
                         <li><a href="futbol.php">Futbol</a></li>
-                        <li><a href="#">Baloncesto</a></li>
-                        <li><a href="#">Tenis</a></li>
-                        <li><a href="#">Galgos</a></li>
-                        <li><a href="#">Bingo</a></li>
+                        <li><a href="baloncesto.php">Baloncesto</a></li>
+                        <li><a href="tenis.php">Tenis</a></li>
+                        <li><a href="galgos.php">Galgos</a></li>
+                        <li><a href="bingo.php">Bingo</a></li>
                     </ul>
                 </div>
                 <div class="col col_14">
                     <h5>Siguenos en</h5>	
                     <ul class="footer_list">
-                        <li><a href="#" class="social facebook">Facebook</a></li>
-                        <li><a href="#" class="social twitter">Twitter</a></li>
-                        <li><a href="#" class="social feed">Feed</a></li>
+                        <li><a href="www.facebook.com" class="social facebook">Facebook</a></li>
+                        <li><a href="www.twitter.com" class="social twitter">Twitter</a></li>
+                        <li><a href="www.marca.com" class="social feed">Feed</a></li>
                     </ul>
 
                 </div>
