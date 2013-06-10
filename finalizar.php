@@ -126,7 +126,7 @@ ddsmoothmenu.init({
     <h1>REGISTRO FINALIZADO</h1><br /><br />
     <p>El Usuario ha sido registrado correctamente. Se le ha enviado un e-mail a su correo para la confirmación de su cuenta. <br />
        Revise la bandeja de SPAM, puede que el email se encuentre alojado allí.</p><br />
-    <p>En el email también recibira un bono de bienvenida de 20€ como obsequio de PETETE Apuestas. <br />
+    <p>En el email también recibira un bono de bienvenida de 10€ como obsequio de PETETE Apuestas. <br />
        Para activar el bono, una vez activada su cuenta PETETE, deberá de introducir dicho código en su página de usuario en <br />
        la pestaña "Códigos Promo".</p>
     <br /><br /><br /><br />

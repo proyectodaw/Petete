@@ -39,6 +39,7 @@ annadirResultado($arrayR, $conexion2);
 function annadirResultado($arrayR, $conexion2) {
         if ($conexion2->query("insert into historico_futbol values('$arrayR[0]','$arrayR[1]',
             '$arrayR[2]','$arrayR[3]','$arrayR[4]','$arrayR[5]','$arrayR[6]','$arrayR[7]','$arrayR[8]')")) {
+            $conexion2->query("delete from tabla_futbol where id_partidof='$arrayR[0]' and fecha='$arrayR[1]' and local='$arrayR[3]' and visitante='$arrayR[4]'");
             return $arrayR;
         } else {
             return false;

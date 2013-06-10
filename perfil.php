@@ -178,8 +178,22 @@ ddsmoothmenu.init({
 
 	<div id="divJug" style="display: none;">
 		<h3>Mis Jugadas</h3>
-		<p>Esta es la actividad de juego en nuestro Casino</p>
+		<p>Esta es tú actividad de juego en PETETE</p>
 		<div id="historial"></div>
+                
+                <?php
+                    $nif=$_SESSION['datosUsuario']['nif'];
+                    $select="select * from apuestas where id_usu='$nif'";
+                    $consulta=$conexion->query($select);
+                    
+                    while ($fila=$consulta->fetch_assoc()) {
+                        printf("Jornada %s: %s Vs %s Tasa: %s Cantidad Apostada: %s Tipo: %s <br/>",$fila['jornada'],
+                                $fila['local'],$fila['visitante'],$fila['tasa'],$fila['cantidad'],
+                                $fila['tipo']);
+                   
+                      
+                    }
+                ?>
 	</div>
 
 

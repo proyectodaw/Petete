@@ -109,21 +109,35 @@ class Usuario {
                     $consulta = "select saldo from usuarios where usuario='$usuario'";
                     $resultado = $conexion->query($consulta);
                     $saldo = $resultado->fetch_assoc();
-                    
-                    $array[0]=$saldo['saldo'];
-                    
+
+                    $array[0] = $saldo['saldo'];
+
                     $consulta2 = "select estado_codigo from usuarios where usuario='$usuario'";
                     $resultado2 = $conexion->query($consulta2);
                     $estado = $resultado2->fetch_assoc();
-                    
-                    $array[1]=$estado['estado_codigo'];
-                    
+
+                    $array[1] = $estado['estado_codigo'];
+
                     return $array;
                 }
-            }else{
+            } else {
                 return false;
             }
-        }else{
+        } else {
+            return false;
+        }
+    }
+
+    function gastarDinero($usuario, $cantidad, $conexion) {
+        $gastar = "update usuarios set saldo=saldo-'$cantidad' where usuario='$usuario'";
+        $conexion->query($gastar);
+        
+        $consulta = "select saldo from usuarios where usuario='$usuario'";
+        $resultado2 = $conexion->query($consulta);
+        $saldo = $resultado2->fetch_assoc();
+        if ($saldo) {
+            return $saldo['saldo'];
+        } else {
             return false;
         }
     }

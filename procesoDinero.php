@@ -8,7 +8,7 @@ $conexion = conectar();
 $user=new Usuario();
 
 $usuario=$_SESSION['datosUsuario']['usuario'];
-$dinero=$_POST['dinero'];
+$dinero=  floatval($_POST['dinero']);
 
 $saldo=$user->ingresarDinero($usuario, $dinero, $conexion);
 if($saldo){

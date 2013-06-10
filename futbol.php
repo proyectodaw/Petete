@@ -61,20 +61,39 @@ ddsmoothmenu.init({
 <div class="login">
            
              <?php
-            include 'Conectar.php';
-            $cerrarSesion='javascript:location.href="cerrarSesion.php"';
-            
-            if (isset($_SESSION['datosUsuario']['usuario'])) {
-                printf("<p>Hola " . $_SESSION['datosUsuario']['nombre'] . "  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
-                printf("Saldo actual: " . $_SESSION['datosUsuario']['saldo'] . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
-                printf("<input type = 'submit' id = 'cerrar' value = 'Cerrar sesion' onclick='".$cerrarSesion."' /></p>");
+            include './Conectar.php';
+            include './Usuario.php';
+            $cerrarSesion = 'javascript:location.href="cerrarSesion.php"';
+            $conexion = conectar();
+            @$codigoActivacion = $_GET['cA'];
+
+            if (isset($codigoActivacion)) {
+                $user = new Usuario();
+                $datosUsuario = $user->validarCodigoActivacion($codigoActivacion, $conexion);
+                if ($datosUsuario) {
+                    $_SESSION['datosUsuario'] = $datosUsuario;
+                    
+                } else {
+                    $_SESSION['error'] = "NO EXISTE CÓDIGO ACTIVACION O YA HA SIDO UTILIZADO";
+                }
+            }
+            @$tipoUsuario=$_SESSION['datosUsuario']['tipo_usuario'];
+            if (@$tipoUsuario=='activo' || $tipoUsuario=='administrador') {
+                unset($_SESSION['error']);
+                printf("<p><img src='images/user.png' width='20px' height='20px' /> <a href='perfil.php'>" . $_SESSION['datosUsuario']['nombre'] . "</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+                printf("<img src='images/dinero.png' width='20px' height='20px' /> " . $_SESSION['datosUsuario']['saldo'] . "€" . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+                printf("<input type = 'submit' id = 'cerrar' value = 'Cerrar sesion' onclick='" . $cerrarSesion . "' /></p>");
             } else {
+                if (isset($_SESSION['error'])) {
+                    print'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $_SESSION['error'];
+                }
                 print'<form id="login" name="login" method="POST" action="logear.php">
 		<input type="text" id="usuario" name="usuario" placeholder="Usuario"/>
 		<input type="password" id="password" name="password" placeholder="Password"/>
 		<input type="submit" id="enviar" name="enviar" value="Entrar" />
                 &nbsp;
-                <a href="registro.php">Registrate</a>
+                <a href="registro.php">Registrate</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="recuperar.php">Recuperar contraseña</a>
 		</form>';
             }
             ?>            
@@ -96,8 +115,36 @@ ddsmoothmenu.init({
         </div> <!-- end of templatemo_menu -->
     </div> <!-- END of header -->
 </div>
-
+    
+    
+    <div id="boleto">
+         <?php
+         printf("<table>");
+         if(isset($_SESSION['arrayApuestas'])){
+             foreach ($_SESSION['arrayApuestas'] as $valor){
+                 printf("<tr>
+                        <form action='procesoBoleto.php' method='POST'>
+                        <td>%s</td>
+                        <td>%s</td>
+                        <td>%s</td>
+                        <td>%s</td>
+                        <td><input type='text' width='20px' id='cantidad' name='cantidad' />
+                        <input type='hidden' name='jor' value='%s'/>
+                        <input type='hidden' name='fec' value='%s'/>
+                        <input type='hidden' name='loc' value='%s'/>
+                        <input type='hidden' name='vis' value='%s'/>
+                        <input type='hidden' name='tas' value='%s'/>
+                        <input type='hidden' name='tip' value='%s'/>
+                        <input type='submit' value='Apostar' /></td>
+                        </form>
+                    ", $valor[2], $valor[3], $valor[5], $valor[4], $valor[0], $valor[1], $valor[2], $valor[3], $valor[4], $valor[5]);
+             }
+         }
+          printf("</table>");
+         ?> 
+    </div>
 	
+    
 <div id="futbol">
 		<h3>Próximos Partidos</h3>
 		<table id="partidos">
@@ -113,7 +160,6 @@ ddsmoothmenu.init({
 			<tr>
                          <?php
                         
-                        $conexion = conectar();
                         $select = "select * from tabla_futbol";
                         $resultado = $conexion->query($select);
 
@@ -126,9 +172,9 @@ ddsmoothmenu.init({
                                 <td headers='th_hin'>%s</td> 
                                 <td headers='th_loc'>%s</td> 
                                 <td headers='th_vis'>%s</td> 
-                                <td headers='th_plo'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='local'/><input type='submit' value='%s €' /></form></td>               
-                                <td headers='th_pem'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='empate'/><input type='submit' value='%s €' /></form></td>
-                                <td headers='th_pvi'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='visitante'/><input type='submit' value='%s €' /></form></td>
+                                <td headers='th_plo'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='1'/><input type='submit' value='%s €' /></form></td>               
+                                <td headers='th_pem'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='X'/><input type='submit' value='%s €' /></form></td>
+                                <td headers='th_pvi'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='2'/><input type='submit' value='%s €' /></form></td>
                                 </tr>", $fila["id_partidof"], $fila["fecha"], $fila["hora_ini"], $fila["local"],$fila["visitante"], $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_local"], $fila["precio_local"], $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_empate"], $fila["precio_empate"], $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_visitante"], $fila["precio_visitante"]);
                    
                       
@@ -177,11 +223,12 @@ ddsmoothmenu.init({
                    
                       
                     }
+                     printf("</table>");
                 }
         
-        if($_SESSION['datosUsuario']['tipo_usuario']=="administrador"){
+        if(@$_SESSION['datosUsuario']['tipo_usuario']=="administrador"){
         print("    
-	<div id='administrador'>
+	
         <h3>Insertar partidos</h3>
                 <table id='partidos'>
 			<tr>
@@ -212,16 +259,9 @@ ddsmoothmenu.init({
 
 		</table>
 		
-	</div>
-        ");
-        
-                  
 	
-        
        
-        }
-	
-        printf("
+            
             <h3>Actualizar resultado</h3>
         <table id='partidos'>
 			<tr>
@@ -243,7 +283,7 @@ ddsmoothmenu.init({
 
                 if ($resultado3) {
                     while ($fila3 = $resultado3->fetch_assoc()) {
-                        if($fila3["resultado"]==null){
+                        if($fila3["resultado"]==NULL){
                         printf("
                         <form id='fResultado' action='procesoResultado.php' method='post'>
                         <tr>
@@ -260,16 +300,20 @@ ddsmoothmenu.init({
                         }
                       
                     }
+                    printf("</table>");
                 }
-                ?>  
-		</table>
                 
+              }
+
+                ?>  
+		
 </div>
+
 
 	
 	
     <div class="cleaner"></div>
-</div> <!-- END of main -->
+ <!-- END of main -->
 
 <div id="templatemo_footer_wrapper">
 	<div id="templatemo_footer">
