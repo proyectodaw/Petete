@@ -3,19 +3,19 @@
   <Contents>
     <Image Source="contents/piecemaker1.png" Title="Project One">
 		<Text>&lt;h1&gt;Futbol&lt;/h1&gt;&lt;p&gt;Si lo tuyo el la Liga de Futbol Profesion o como muchos dicen la mejor liga del Mundo (LFP), pon aprueba tus conocimientos en esta web.&lt;/p&gt;&lt;p&gt;Solo con un Click gana un monton de premios.&lt;/p&gt;&lt;p&gt;Registrate no te arrepentiras.&lt;/p&gt;</Text>
-		<Hyperlink URL="http://www.templatemo.com" Target="_blank" />
+		<Hyperlink URL="./../futbol.php" Target="_blank" />
 	</Image>		
     <Image Source="contents/piecemaker2.png" Title="Project Two">
       <Text>&lt;h1&gt;Baloncesto&lt;/h1&gt;&lt;p&gt;Gana dinero con la mejor Liga de Baloncesto del Mundo (NBA).&lt;/p&gt;&lt;p&gt;Solo con un Click gana un monton de premios.&lt;/p&gt;&lt;p&gt;Registrate no te arrepentiras.&lt;/p&gt;</Text>
-      <Hyperlink URL="http://www.templatemo.com/page/1" Target="_blank" />
+      <Hyperlink URL="./../baloncesto.php" Target="_blank" />
     </Image>
 	<Image Source="contents/piecemaker3.png" Title="Project Three">
       <Text>&lt;h1&gt;Tenis&lt;/h1&gt;&lt;p&gt;Gran Variedad de Apuestas de todo tipo de torneos.&lt;/p&gt;&lt;p&gt;Solo con un Click gana un monton de premios.&lt;/p&gt;&lt;p&gt;Registrate no te arrepentiras.&lt;/p&gt;</Text>
-      <Hyperlink URL="http://www.templatemo.com/page/2" Target="_blank" />
+      <Hyperlink URL="./../tenis.php" Target="_blank" />
     </Image>
 	<Image Source="contents/piecemaker4.png" Title="Project Four">
       <Text>&lt;h1&gt;La Mejor Web de Apuestas de toda Europa&lt;/h1&gt;&lt;p&gt;Reconocida por toda Europa por su facilidad de manejo y sus grandes Premios.&lt;/p&gt;&lt;p&gt;Contamos con mas de 2 Millones de Usuarios de todo el Mundo.&lt;/p&gt;&lt;p&gt;Registrate no te arrepentiras.&lt;/p&gt;</Text>
-      <Hyperlink URL="http://www.templatemo.com/page/3" Target="_blank" />
+      <Hyperlink URL="./../futbol.php" Target="_blank" />
     </Image>
   </Contents>
   <Settings ImageWidth="960" ImageHeight="360" LoaderColor="0x333333" InnerSideColor="0x222222" SideShadowAlpha="0.8" DropShadowAlpha="0.7" DropShadowDistance="25" DropShadowScale="0.95" DropShadowBlurX="40" DropShadowBlurY="4" MenuDistanceX="20" MenuDistanceY="50" MenuColor1="0x999999" MenuColor2="0x333333" MenuColor3="0xFFFFFF" ControlSize="100" ControlDistance="20" ControlColor1="0x222222" ControlColor2="0xFFFFFF" ControlAlpha="0.8" ControlAlphaOver="0.95" ControlsX="450" ControlsY="280&#xD;&#xA;" ControlsAlign="center" TooltipHeight="30" TooltipColor="0x222222" TooltipTextY="5" TooltipTextStyle="P-Italic" TooltipTextColor="0xFFFFFF" TooltipMarginLeft="5" TooltipMarginRight="7" TooltipTextSharpness="50" TooltipTextThickness="-100" InfoWidth="400" InfoBackground="0xFFFFFF" InfoBackgroundAlpha="0.95" InfoMargin="15" InfoSharpness="0" InfoThickness="0" Autoplay="10" FieldOfView="45"></Settings>

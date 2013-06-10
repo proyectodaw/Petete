@@ -4,6 +4,30 @@ session_start();
 
 include 'Conectar.php';
 
+$conexion2 = conectar();
+
+//*********************REALIZAR ACTUALIZACIONES DE LOS SALDOS DE LOS GANADORES*******************
+
+$sql = "update usuarios set saldo = saldo +(select tasa*cantidad from apuestas where tipo = 
+(select resultado from historico_futbol where historico_futbol.local=apuestas.local
+and historico_futbol.visitante=apuestas.visitante))
+where nif in (select id_usu from apuestas where tipo=(select resultado from historico_futbol
+where historico_futbol.local=apuestas.local and historico_futbol.visitante=apuestas.visitante))";
+
+$conexion2->query($sql);
+
+//*********************ENVIAMOS EMAILS A LOS GANADORES********************
+
+$sql2="select nif from usuarios where nif in 
+(select id_usu from apuestas where tipo=(select resultado from historico_futbol where 
+historico_futbol.local=apuestas.local and historico_futbol.visitante=apuestas.visitante))";
+
+$resultado=$conexion2->query($sql2);
+if($resultado){
+    while($ganadores=$resultado->fetch_assoc()){
+        
+    }
+}
 
 $r_jornada = $_POST['r_jor'];
 $r_fechaP = $_POST['r_fec'];
@@ -21,7 +45,7 @@ $r_p_empate = floatval($r_p_empateT);
 $r_p_visitante = floatval($r_p_visitanteT);
 
 
-$conexion2 = conectar();
+
 $arrayR = array();
 
     $arrayR[0] = $r_jornada;
