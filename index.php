@@ -125,7 +125,7 @@
         <div id="templatemo_middle_wrapper">
             <div id="templatemo_middle">
                 <div id="piecemaker">
-                    <p>This template is provided by <a href="http://www.templatemo.com">www.templatemo.com</a> and feel free to use it for your websites.</p>
+                    <p>This template is provided by <a href="http://www.petete.comuv.com">www.petete.comuv.com</a> and feel free to use it for your websites.</p>
                 </div>
             </div>
         </div> <!-- END of slider -->
@@ -186,9 +186,9 @@
                 <div class="col col_14">
                     <h5>Siguenos en</h5>	
                     <ul class="footer_list">
-                        <li><a href="www.facebook.com" class="social facebook">Facebook</a></li>
-                        <li><a href="www.twitter.com" class="social twitter">Twitter</a></li>
-                        <li><a href="www.marca.com" class="social feed">Feed</a></li>
+                        <li><a href="http://www.facebook.com" class="social facebook">Facebook</a></li>
+                        <li><a href="http://www.twitter.com" class="social twitter">Twitter</a></li>
+                        <li><a href="http://www.marca.com" class="social feed">Feed</a></li>
                     </ul>
 
                 </div>

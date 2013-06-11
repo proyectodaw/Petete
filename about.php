@@ -121,7 +121,7 @@ Sin embargo, sí nos ocuparemos aquí de otro uso de este atributo: gracias a TA
             <div class="cleaner"></div>
             <cite>Ismael Cirre<a href="#"><span> - DAW, PETETE's Comany</span></a></cite></div>
         <div class="testimonial">
-            <p>"Soy una puta maquina. Sin mi seria todo diferente."</p>
+            <p>"Soy una maquina. Sin mi seria todo diferente."</p>
             <div class="cleaner"></div>
             <cite>Raul Abril<a href="#"><span> - DAW, PETETE's Comany</span></a></cite></div>
     </div>    
@@ -154,9 +154,9 @@ Sin embargo, sí nos ocuparemos aquí de otro uso de este atributo: gracias a TA
         <div class="col col_14">
         	<h5>Siguenos en</h5>	
             <ul class="footer_list">
-                <li><a href="www.facebook.com" class="social facebook">Facebook</a></li>
-                <li><a href="www.twitter.com" class="social twitter">Twitter</a></li>
-                <li><a href="www.marca.com" class="social feed">Feed</a></li>
+                <li><a href="http://www.facebook.com" class="social facebook">Facebook</a></li>
+                <li><a href="http://www.twitter.com" class="social twitter">Twitter</a></li>
+                <li><a href="http://www.marca.com" class="social feed">Feed</a></li>
             </ul>
             
         </div>

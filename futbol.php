@@ -206,7 +206,7 @@ ddsmoothmenu.init({
 		</table>
 	<?php
         
-         print("<br><br><br><h3>Últimos partidos finalizados</h3>
+         print("<br><br><br><h3>Partidos finalizados</h3>
 		<table id='partidos'>
 			<tr>
                                 <th id='th_jor_h'>Jornada</th>
@@ -361,9 +361,9 @@ ddsmoothmenu.init({
         <div class="col col_14">
         	<h5>Siguenos en</h5>	
             <ul class="footer_list">
-                <li><a href="www.facebook.com" class="social facebook">Facebook</a></li>
-                <li><a href="www.twitter.com" class="social twitter">Twitter</a></li>
-                <li><a href="www.marca.com" class="social feed">Feed</a></li>
+                <li><a href="http://www.facebook.com" class="social facebook">Facebook</a></li>
+                <li><a href="http://www.twitter.com" class="social twitter">Twitter</a></li>
+                <li><a href="http://www.marca.com" class="social feed">Feed</a></li>
             </ul>
             
         </div>
