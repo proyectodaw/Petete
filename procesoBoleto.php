@@ -46,17 +46,6 @@ if ($saldo >= $p_cantidad) {
 
     annadirApuesta($arrayBoleto, $conexion);
 } else {
-    echo '
-<!DOCTYPE HTML>
-<html lang="en-US">
-<head>
-    <meta charset="UTF-8">
-    <script language="javascript" type="text/javascript">alert("No tienes suficiente dinero");</script>
-</head>
-<body>
-    
-</body>
-</html>';
     
 }
 Header("location:futbol.php");

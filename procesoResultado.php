@@ -46,7 +46,7 @@ if ($resultado) {
 
         //para el envío en formato HTML 
         $headers = "MIME-Version: 1.0\r\n";
-        $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+        $headers .= "Content-type: text/html; charset=utf-8\r\n";
 
         //dirección del remitente 
         $headers .= "From: PETETE Apuestas <administrador@petete.com>\r\n";
@@ -85,7 +85,7 @@ if ($resultado2) {
 
         //para el envío en formato HTML 
         $headers2 = "MIME-Version: 1.0\r\n";
-        $headers2 .= "Content-type: text/html; charset=iso-8859-1\r\n";
+        $headers2 .= "Content-type: text/html; charset=utf-8\r\n";
 
         //dirección del remitente 
         $headers2 .= "From: PETETE Apuestas <administrador@petete.com>\r\n";
