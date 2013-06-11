@@ -245,7 +245,7 @@ ddsmoothmenu.init({
                    
                       
                     }
-                     printf("</table>");
+                     printf("</table><br><br><br>");
                 }
         
         if(@$_SESSION['datosUsuario']['tipo_usuario']=="administrador"){
@@ -280,7 +280,7 @@ ddsmoothmenu.init({
                             </form>
 
 		</table>
-		
+		<br><br><br><br>
 	
        
             
@@ -322,7 +322,7 @@ ddsmoothmenu.init({
                         }
                       
                     }
-                    printf("</table>");
+                    printf("</table><br><br><br><br>");
                 }
                 
               }
