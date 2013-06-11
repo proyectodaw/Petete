@@ -216,7 +216,8 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 	padding: 9px; 
 	text-align: center; 
 	background: #c8c8bd; 
-	border: 1px solid #e8e8e3; 
+	border: 1px solid #e8e8e3;
+        height:170px;
 }
 
 .fp_box5:hover { 
@@ -667,20 +668,20 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
   
   #a{
       float:left;
-      height: 300px;
+      height: 450px;
   }
   #a fieldset{
       height: 50%;
   }
   #b{
       float:right;
-      height: 300px;
+      height: 450px;
   }
   #b fieldset{
       height:100%;
   }
   #c{
-      margin-top: 400px;
+      margin-top: 600px;
   }
 
 
@@ -741,8 +742,17 @@ padding-bottom:12px;
   
   #login a{
       color:orange;
+      font-weight: bold;
+  }
+  .login a{
+      color:orange;
+      font-weight: bold;
   }
   
+  .login{
+      color:orange;
+      font-weight: bold;
+  }
   #login a:hover{
       color:orange;
       text-decoration: none;
@@ -751,4 +761,31 @@ padding-bottom:12px;
   #login img{
       width:20px;
       height:20px;
+  }
+  
+  #futbol{
+      float:left;
+      width:48%;
+  }
+  
+  #boleto th{
+      font-family: Tahoma;
+        font-size: 15px;
+        font-weight: bold;
+	background-color:orange;
+        text-align: center;
+
+  }
+  
+  #boleto{
+      float:right;
+      width:48%;
+  }
+   #cantidad{
+      
+      width:30px;
+  }
+   #boleto table{
+
+      border: solid 1px
   }

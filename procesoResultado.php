@@ -27,7 +27,7 @@ $resultado = $conexion2->query($sql2);
 if ($resultado) {
     while ($ganadores = $resultado->fetch_assoc()) {
        $destinatario = $ganadores['email'];
-        $asunto = "Resolución de la apuesta.";
+        $asunto = "Estado de la apuesta.";
         $cuerpo = ' 
     <html> 
     <head> 
@@ -37,7 +37,7 @@ if ($resultado) {
     <body> 
         <h1>Hola ' . $ganadores['nombre'] . ' ' . $ganadores['apellidos'] . '</h1> 
         <p><b>Mensaje de PETETE Apuestas.</b></p><br />
-        <p>Has ganado tu apuesta, tu saldo actual es de '.$ganadores['saldo'].'</p>
+        <p>Has ganado tu apuesta, tu saldo actual es de '.$ganadores['saldo'].' €</p>
         <p>Para ir a PETETE Apuestas pincha en el siguiente link.</p>
         <a href="http://www.petete.comuv.com">http://www.petete.comuv.com</a>
     </body> 
@@ -66,7 +66,7 @@ if ($resultado2) {
     while ($perdedores = $resultado2->fetch_assoc()) {
 
         $destinatario2 = $perdedores['email'];
-        $asunto2 = "Resolución de la apuesta.";
+        $asunto2 = "Estado de la apuesta.";
         $cuerpo2 = ' 
     <html> 
     <head> 
@@ -76,7 +76,7 @@ if ($resultado2) {
     <body> 
         <h1>Hola ' . $perdedores['nombre'] . ' ' . $perdedores['apellidos'] . '</h1> 
         <p><b>Mensaje de PETETE Apuestas.</b></p><br />
-        <p>Has perdido tu apuesta tu saldo actual es de '.$perdedores['saldo'].'</p>
+        <p>Has perdido tu apuesta tu saldo actual es de '.$perdedores['saldo'].' €</p>
         <p>Para ir a PETETE Apuestas pincha en el siguiente link.</p>
         <a href="http://www.petete.comuv.com">http://www.petete.comuv.com</a>
     </body> 

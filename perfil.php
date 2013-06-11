@@ -216,7 +216,7 @@ ddsmoothmenu.init({
 			<br><br>
 			<input type="submit" value="Enviar"/>
 		</form>
-                <form id="frmElimUsu" action="#" method="POST">
+                <form id="frmElimUsu" action="procesoEliminarUsuario.php" method="POST">
                     <input type="submit" value="Elimiar Usuario"/>
                 </form>
 	</div>

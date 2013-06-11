@@ -7,7 +7,27 @@
 <meta name="keywords" content="work center, theme, distortion_effect 3D image slider, 960, free templates, CSS, HTML" />
 <meta name="description" content="Work Center Theme is a free CSS template by templatemo.com for everyone. Feel free to use it for any purpose." />
 <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script>
+$(document).ready(function(){
+   $("#uno").click(function(evento){
 
+         $("#tablaBoleto").css("display", "block");
+    
+	});
+	$("#equis").click(function(evento){
+
+         $("#tablaBoleto").css("display", "block");
+    
+	});
+	$("#dos").click(function(evento){
+
+         $("#tablaBoleto").css("display", "block");
+    
+        });     
+
+});
+</script>
 <script type="text/javascript" src="js/swfobject/swfobject.js"></script>
         
 	<!-- embedding SWF -->
@@ -106,10 +126,10 @@ ddsmoothmenu.init({
             <ul>
                 <li><a href="index.php" class="selected">Inicio</a></li>
                 <li><a href="futbol.php">Fútbol</a></li>
-                <li><a href="#">Baloncesto</a></li>
-                <li><a href="#">Tenis</a></li>
-		<li><a href="#">Galgos</a></li>
-                <li><a href="#">Bingo</a></li>
+                <li><a href="baloncesto.php">Baloncesto</a></li>
+                <li><a href="tenis.php">Tenis</a></li>
+		<li><a href="galgo.php">Galgos</a></li>
+                <li><a href="bingo.php">Bingo</a></li>
             </ul>
             <br style="clear: left" />
         </div> <!-- end of templatemo_menu -->
@@ -118,9 +138,11 @@ ddsmoothmenu.init({
     
     
     <div id="boleto">
+        <table>        
          <?php
-         printf("<table>");
+            
          if(isset($_SESSION['arrayApuestas'])){
+             printf("<tr><th colspan='5'>Boleto</th></tr>");
              foreach ($_SESSION['arrayApuestas'] as $valor){
                  printf("<tr>
                         <form action='procesoBoleto.php' method='POST'>
@@ -140,7 +162,7 @@ ddsmoothmenu.init({
                     ", $valor[2], $valor[3], $valor[5], $valor[4], $valor[0], $valor[1], $valor[2], $valor[3], $valor[4], $valor[5]);
              }
          }
-          printf("</table>");
+          printf("</table><br><br><br><br>");
          ?> 
     </div>
 	
@@ -172,9 +194,9 @@ ddsmoothmenu.init({
                                 <td headers='th_hin'>%s</td> 
                                 <td headers='th_loc'>%s</td> 
                                 <td headers='th_vis'>%s</td> 
-                                <td headers='th_plo'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='1'/><input type='submit' value='%s €' /></form></td>               
-                                <td headers='th_pem'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='X'/><input type='submit' value='%s €' /></form></td>
-                                <td headers='th_pvi'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='2'/><input type='submit' value='%s €' /></form></td>
+                                <td headers='th_plo'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='1'/><input type='submit' id='uno' value='%s €' /></form></td>               
+                                <td headers='th_pem'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='X'/><input type='submit' id='equis' value='%s €' /></form></td>
+                                <td headers='th_pvi'><form action='procesoApuestas.php' method='post'><input type='hidden' name='jor' value='%s'/><input type='hidden' name='fec' value='%s'/><input type='hidden' name='loc' value='%s'/><input type='hidden' name='vis' value='%s'/><input type='hidden' name='pre' value='%s'/><input type='hidden' name='tipo' value='2'/><input type='submit' id='dos' value='%s €' /></form></td>
                                 </tr>", $fila["id_partidof"], $fila["fecha"], $fila["hora_ini"], $fila["local"],$fila["visitante"], $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_local"], $fila["precio_local"], $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_empate"], $fila["precio_empate"], $fila["id_partidof"], $fila["fecha"], $fila["local"], $fila["visitante"], $fila["precio_visitante"], $fila["precio_visitante"]);
                    
                       
@@ -184,7 +206,7 @@ ddsmoothmenu.init({
 		</table>
 	<?php
         
-         print("<h3>Últimos partidos finalizados</h3>
+         print("<br><br><br><h3>Últimos partidos finalizados</h3>
 		<table id='partidos'>
 			<tr>
                                 <th id='th_jor_h'>Jornada</th>
@@ -324,25 +346,25 @@ ddsmoothmenu.init({
                 <li><a href="about.php">Sobre nosotros...</a></li>
                 <li><a href="contact.php">Contacto</a></li>
             	<li><a href="registro.php">Registro</a></li>
-			</ul>   
+            </ul>   
         </div>
         <div class="col col_14">
         	<h5>Paginas</h5>
             <ul class="footer_list">
             	<li><a href="futbol.php">Futbol</a></li>
-                <li><a href="#">Baloncesto</a></li>
-                <li><a href="#">Tenis</a></li>
-                <li><a href="#">Galgos</a></li>
-                <li><a href="#">Bingo</a></li>
+                <li><a href="baloncesto.php">Baloncesto</a></li>
+                <li><a href="tenis.php">Tenis</a></li>
+                <li><a href="galgos.php">Galgos</a></li>
+                <li><a href="bingo.php">Bingo</a></li>
 			</ul>
         </div>
         <div class="col col_14">
         	<h5>Siguenos en</h5>	
             <ul class="footer_list">
-                <li><a href="#" class="social facebook">Facebook</a></li>
-                <li><a href="#" class="social twitter">Twitter</a></li>
-                <li><a href="#" class="social feed">Feed</a></li>
-			</ul>
+                <li><a href="www.facebook.com" class="social facebook">Facebook</a></li>
+                <li><a href="www.twitter.com" class="social twitter">Twitter</a></li>
+                <li><a href="www.marca.com" class="social feed">Feed</a></li>
+            </ul>
             
         </div>
         

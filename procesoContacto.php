@@ -22,4 +22,6 @@ mail($destinatario, $asunto, $mensaje, $headers);
     
     //******************************  FIN EMAIL ******************************//
 
+header("location:index.php");
+
 ?>
