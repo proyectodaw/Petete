@@ -76,7 +76,7 @@ if ($resultado2) {
     <body> 
         <h1>Hola ' . $perdedores['nombre'] . ' ' . $perdedores['apellidos'] . '</h1> 
         <p><b>Mensaje de PETETE Apuestas.</b></p><br />
-        <p>Has perdido tu apuesta.tu saldo actual es de '.$perdedores['saldo'].'</p>
+        <p>Has perdido tu apuesta tu saldo actual es de '.$perdedores['saldo'].'</p>
         <p>Para ir a PETETE Apuestas pincha en el siguiente link.</p>
         <a href="http://www.petete.comuv.com">http://www.petete.comuv.com</a>
     </body> 

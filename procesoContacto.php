@@ -8,7 +8,7 @@ $mensaje=$_POST['mensaje'];
 
 //****************************** ENVIO EMAIL ******************************//
        
-    $destinatario="rypsk@hotmail.com";
+    $destinatario="rypsk1.0@gmail.com";
     
 //para el envío en formato HTML 
     $headers = "MIME-Version: 1.0\r\n";
@@ -17,15 +17,6 @@ $mensaje=$_POST['mensaje'];
 //dirección del remitente 
     $headers .= "From: ".$email.".\r\n";
     $headers .= "Nombre ".$nombre.".";
-
-//dirección de respuesta, si queremos que sea distinta que la del remitente 
-    //$headers .= "Reply-To: admin@petete.com\r\n";
-
-//direcciones que recibián copia 
-    //$headers .= "Cc: admin@petete.com\r\n";
-
-//direcciones que recibirán copia oculta 
-    //$headers .= "Bcc: admin@petete.com\r\n";
 
 mail($destinatario, $asunto, $mensaje, $headers);
     

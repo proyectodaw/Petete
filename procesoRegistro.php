@@ -97,15 +97,6 @@ if ($existe == false) {
 //dirección del remitente 
     $headers .= "From: PETETE Apuestas <administrador@petete.com>\r\n";
 
-//dirección de respuesta, si queremos que sea distinta que la del remitente 
-    //$headers .= "Reply-To: admin@petete.com\r\n";
-
-//direcciones que recibián copia 
-    //$headers .= "Cc: admin@petete.com\r\n";
-
-//direcciones que recibirán copia oculta 
-    //$headers .= "Bcc: admin@petete.com\r\n";
-
 mail($destinatario, $asunto, $cuerpo, $headers);
     
     //******************************  FIN EMAIL ******************************//
