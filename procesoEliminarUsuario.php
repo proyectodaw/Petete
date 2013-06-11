@@ -8,7 +8,7 @@ include 'Usuario.php';
 $conexion=  conectar();
 
 $nif=$_SESSION['datosUsuario']['nif'];
-$fecha=  date("Y-m-d");
+$fecha=date("Y-m-d H:i:s");
 
 annadirBaja($nif, $fecha, $conexion);
 
