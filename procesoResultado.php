@@ -101,7 +101,7 @@ if ($resultado) {
 
 //*********************ENVIAMOS EMAILS A LOS PERDEDORES********************
 
-$sql3 = "select email,nombre,apellidos,saldo from usuarios where nif in (select id_usu from apuestas where local='$arrayR[3]' and visitante='$arrayR[4]' and tipo <> '$arrayR[8]')";
+$sql3 = "select email,nombre,apellidos,saldo from usuarios where nif in (select id_usu from apuestas where local='$arrayR[3]' and visitante='$arrayR[4]' and tipo NOT LIKE '$arrayR[8]%')";
 
 $resultado2 = $conexion2->query($sql3);
 if ($resultado2) {
