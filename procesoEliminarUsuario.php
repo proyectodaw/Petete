@@ -21,4 +21,6 @@ function annadirBaja($nif, $fecha, $conexion){
     }
        
 }
+
+header("location:cerrarSesion.php");
 ?>
